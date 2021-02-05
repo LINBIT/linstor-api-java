@@ -1,0 +1,27 @@
+image: openjdk:8-jdk
+
+variables:
+  LINSTOR_CONTROLLER_HOST: 'linstor-controller'
+  LINSTOR_CONTROLLER_PORT: '3370'
+
+services:
+  - name: $CI_REGISTRY/linstor/linstor-server/controller
+    alias: linstor-controller
+
+cache:
+  paths:
+    - .gradle/wrapper
+    - .gradle/caches
+
+build:
+  stage: build
+  script:
+    - ./gradlew assemble
+
+test:
+  stage: test
+  script:
+    - JAVA_OPTS="-ea" ./gradlew test
+  artifacts:
+    reports:
+      junit: build/test-results/test/TEST-*.xml
