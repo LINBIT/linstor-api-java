@@ -1,6 +1,8 @@
+import javax.naming.ConfigurationException
+
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.+'
@@ -13,13 +15,14 @@ plugins {
     id 'idea'
     id 'eclipse'
     id 'java-library'
+    id 'signing'
 }
 
 group = 'com.linbit.linstor.api'
 version = '0.1.0'
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 
@@ -81,23 +84,73 @@ if(hasProperty('target') && target == 'android') {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 
-    publishing {
-        publications {
-            maven(MavenPublication) {
-                artifactId = 'java-linstor'
-                from components.java
-
-                pom {
-                    name = 'java-linstor'
-                    description = 'Linstor REST API library'
-                }
-            }
-        }
-    }
-
     task execute(type:JavaExec) {
        main = System.getProperty('mainClass')
        classpath = sourceSets.main.runtimeClasspath
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
+
+publishing {
+    repositories {
+        maven {
+            name 'sonatype'
+
+            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+            credentials {
+                username sonatypeUsername
+                password sonatypePassword
+            }
+
+        }
+    }
+
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'java-linstor'
+            from components.java
+            artifact javadocJar
+            artifact sourcesJar
+
+            pom {
+                name = 'java-linstor'
+                description = 'Linstor REST API library'
+                url = 'https://github.com/LINBIT/linstor-api-java'
+
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'rp-'
+                        name = 'Rene Peinthor'
+                        email = 'rene.peinthor@linbit.com'
+                    }
+                }
+
+                scm {
+                    connection = 'scm:git:https://github.com/LINBIT/linstor-api-java.git'
+                    developerConnection = 'scm:git:https://github.com/LINBIT/linstor-api-java.git'
+                    url = 'https://github.com/LINBIT/linstor-api-java'
+                }
+            }
+        }
     }
 }
 
@@ -106,6 +159,19 @@ ext {
     jackson_version = "2.10.1"
     jersey_version = "2.26"
     junit_version = "4.12"
+
+    it.'signing.secretKeyRingFile' = project.findProperty('java-linstor.signing.secretKeyRingFile') ?:
+            project.findProperty('signing.secretKeyRingFile')
+    it.'signing.password' = project.findProperty('java-linstor.signing.password') ?:
+            project.findProperty('signing.password')
+    it.'signing.keyId' = project.findProperty('java-linstor.signing.keyId') ?:
+            project.findProperty('signing.keyId')
+    sonatypeUsername = project.findProperty('java-linstor.sonatype.username') ?:
+            project.findProperty('sonatype.username')
+    sonatypePassword = project.findProperty('java-linstor.sonatype.password') ?:
+            project.findProperty('sonatype.password')
+    sonatypeStagingProfileId = project.findProperty('java-linstor.sonatype.stagingProfileId') ?:
+            project.findProperty('sonatype.stagingProfileId')
 }
 
 dependencies {
@@ -120,4 +186,14 @@ dependencies {
     implementation "javax.activation:activation:1.1.1"
     implementation "org.glassfish.jersey.inject:jersey-hk2:$jersey_version"
     testImplementation "junit:junit:$junit_version"
+}
+
+signing {
+    required {
+        // signing is required if this is a release version and the artifacts are to be published
+        !version.endsWith('SNAPSHOT') && tasks.withType(PublishToMavenRepository).find {
+            gradle.taskGraph.hasTask it
+        }
+    }
+    sign publishing.publications
 }
