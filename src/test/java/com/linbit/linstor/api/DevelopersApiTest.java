@@ -62,6 +62,8 @@ import com.linbit.linstor.api.model.VolumeGroupModify;
 import com.linbit.linstor.api.model.VolumeModify;
 
 import java.io.File;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -1704,5 +1706,24 @@ public class DevelopersApiTest {
         ApiCallRcList response = api.volumeModify(resource, node, volumeNumber, body);
 
         // TODO: test validations
+    }
+
+    @Test
+    public void apiExceptionParsing() {
+        final String jsonError = "[{\"ret_code\":-4611686018373385726,\"message\":\"Cannot delete resource definition" +
+            " 'cs-f626928f-4c3a-41bb-a1c8-d9000bfb1be1' because it has snapshots.\",\"details\":\"Resource " +
+            "definition: cs-f626928f-4c3a-41bb-a1c8-d9000bfb1be1\",\"error_report_ids\":[\"60BF77E" +
+            "E-00000-000007\"],\"obj_refs\":{\"RscDfn\":\"cs-f626928f-4c3a-41bb-a1c8-d9000bfb1be1\"}}]";
+        ApiException apiException = new ApiException(500, "Internal Server Error", Collections.emptyMap(), jsonError);
+
+        ApiCallRcList answers = apiException.getApiCallRcList();
+        Assert.assertEquals(1, answers.size());
+        Assert.assertEquals(
+            "Cannot delete resource definition 'cs-f626928f-4c3a-41bb-a1c8-d9000bfb1be1' because it has snapshots.",
+            answers.get(0).getMessage());
+        Assert.assertEquals(
+            "Cannot delete resource definition 'cs-f626928f-4c3a-41bb-a1c8-d9000bfb1be1' because it has snapshots.",
+            apiException.getBestMessage());
+
     }
 }

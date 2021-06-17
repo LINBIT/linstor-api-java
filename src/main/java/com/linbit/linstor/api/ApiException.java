@@ -12,8 +12,13 @@
 
 package com.linbit.linstor.api;
 
+import com.linbit.linstor.api.model.ApiCallRcList;
+
 import java.util.Map;
 import java.util.List;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-02-05T10:27:33.226Z[GMT]")public class ApiException extends Exception {
     private int code = 0;
@@ -85,5 +90,28 @@ import java.util.List;
      */
     public String getResponseBody() {
         return responseBody;
+    }
+
+    public ApiCallRcList getApiCallRcList() {
+        ObjectMapper mapper = new ObjectMapper();
+        if (getResponseBody() != null) {
+            try
+            {
+                ApiCallRcList errors = mapper.readValue(getResponseBody(), ApiCallRcList.class);
+                return errors;
+            } catch (JsonProcessingException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public String getBestMessage() {
+        ApiCallRcList answers = getApiCallRcList();
+        if (answers != null && !answers.isEmpty()) {
+            return answers.get(0).getMessage();
+        }
+        return getResponseBody();
     }
 }
