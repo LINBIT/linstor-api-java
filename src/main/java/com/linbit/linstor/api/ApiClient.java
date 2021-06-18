@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Collection;
 import java.util.Collections;
@@ -49,7 +50,7 @@ import com.linbit.linstor.api.auth.HttpBasicAuth;
 import com.linbit.linstor.api.auth.ApiKeyAuth;
 import com.linbit.linstor.api.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-02-05T10:27:33.226Z[GMT]")public class ApiClient {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-18T05:15:14.614Z[GMT]")public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected String basePath = "http://localhost:3370";
   protected boolean debugging = false;
@@ -632,9 +633,9 @@ import com.linbit.linstor.api.auth.OAuth;
     }
 
     if (tempFolderPath == null)
-      return File.createTempFile(prefix, suffix);
+      return Files.createTempFile(prefix, suffix).toFile();
     else
-      return File.createTempFile(prefix, suffix, new File(tempFolderPath));
+      return Files.createTempFile(Paths.get(tempFolderPath), prefix, suffix).toFile();
   }
 
   /**
@@ -670,7 +671,7 @@ import com.linbit.linstor.api.auth.OAuth;
     }
 
     Invocation.Builder invocationBuilder = target.request();
-    
+
     if (accept != null) {
     	invocationBuilder = invocationBuilder.accept(accept);
     }

@@ -1,8 +1,5 @@
 *.class
 
-# codegen
-.swagger-codegen/VERSION
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 .idea/
