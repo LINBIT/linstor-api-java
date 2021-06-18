@@ -17,7 +17,7 @@ public class ApiCallCheckerTest {
             apiCallRcsSuccess.add(new ApiCallRc().message("test msg2").retCode(
                 ApiConsts.MASK_WARN | ApiConsts.MASK_MOD | ApiConsts.MASK_NODE));
 
-            Assert.assertFalse(ApiCallChecker.hasError(apiCallRcsSuccess));
+            Assert.assertFalse(apiCallRcsSuccess.hasError());
         }
 
         {
@@ -29,8 +29,8 @@ public class ApiCallCheckerTest {
             apiCallRcsError.add(new ApiCallRc().message("test msg2").retCode(
                 ApiConsts.MASK_INFO | ApiConsts.MASK_MOD | ApiConsts.MASK_NODE));
 
-            Assert.assertTrue(ApiCallChecker.hasError(apiCallRcsError));
-            Assert.assertTrue(ApiCallChecker.isError(apiCallRcsError.get(1)));
+            Assert.assertTrue(apiCallRcsError.hasError());
+            Assert.assertTrue(apiCallRcsError.get(1).isError());
         }
     }
 }

@@ -12,6 +12,8 @@
 
 package com.linbit.linstor.api.model;
 
+import com.linbit.linstor.api.ApiConsts;
+
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -241,6 +243,18 @@ public class ApiCallRc {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  public boolean isError() {
+    return (this.getRetCode() & ApiConsts.MASK_ERROR) == ApiConsts.MASK_ERROR;
+  }
+
+  public boolean isInfo() {
+    return (this.getRetCode() & ApiConsts.MASK_INFO) == ApiConsts.MASK_INFO;
+  }
+
+  public boolean isWarning() {
+    return (this.getRetCode() & ApiConsts.MASK_WARN) == ApiConsts.MASK_WARN;
   }
 
 }

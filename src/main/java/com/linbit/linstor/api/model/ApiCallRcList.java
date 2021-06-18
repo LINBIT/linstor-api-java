@@ -61,4 +61,13 @@ public class ApiCallRcList extends ArrayList<ApiCallRc> {
     return o.toString().replace("\n", "\n    ");
   }
 
+  public boolean hasError() {
+    for (ApiCallRc apiCallRc : this) {
+      if (apiCallRc.isError()) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 }
