@@ -53,6 +53,7 @@ import com.linbit.linstor.api.model.SnapshotShippingStatus;
 import com.linbit.linstor.api.model.StoragePool;
 import com.linbit.linstor.api.model.StoragePoolDefinition;
 import com.linbit.linstor.api.model.StoragePoolDefinitionModify;
+import com.linbit.linstor.api.model.ToggleDiskDiskful;
 import com.linbit.linstor.api.model.Volume;
 import com.linbit.linstor.api.model.VolumeDefinition;
 import com.linbit.linstor.api.model.VolumeDefinitionCreate;
@@ -1045,7 +1046,7 @@ public class DevelopersApiTest {
         String resource = null;
         String node = null;
         String fromnode = null;
-        ApiCallRcList response = api.resourceMigrateDisk(resource, node, fromnode);
+        ApiCallRcList response = api.resourceMigrateDisk(resource, node, fromnode, new ToggleDiskDiskful());
 
         // TODO: test validations
     }
@@ -1219,7 +1220,7 @@ public class DevelopersApiTest {
     public void resourceToggleDiskfulTest() throws ApiException {
         String resource = null;
         String node = null;
-        ApiCallRcList response = api.resourceToggleDiskful(resource, node);
+        ApiCallRcList response = api.resourceToggleDiskful(resource, node, new ToggleDiskDiskful());
 
         // TODO: test validations
     }
@@ -1237,7 +1238,8 @@ public class DevelopersApiTest {
         String resource = null;
         String node = null;
         String storagepool = null;
-        ApiCallRcList response = api.resourceToggleDiskfulStoragepool(resource, node, storagepool);
+        ApiCallRcList response = api.resourceToggleDiskfulStoragepool(
+            resource, node, storagepool, new ToggleDiskDiskful());
 
         // TODO: test validations
     }
