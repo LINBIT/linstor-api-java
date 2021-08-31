@@ -12,6 +12,7 @@
 
 package com.linbit.linstor.api;
 
+import com.linbit.linstor.api.model.ApiCallRc;
 import com.linbit.linstor.api.model.ApiCallRcList;
 
 import java.util.Map;
@@ -110,7 +111,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
     public String getBestMessage() {
         ApiCallRcList answers = getApiCallRcList();
         if (answers != null && !answers.isEmpty()) {
-            return answers.get(0).getMessage();
+            return answers.stream()
+                .filter(ApiCallRc::isError)
+                .findFirst()
+                .map(ApiCallRc::getMessage).orElse(answers.get(0).getMessage());
         }
         return getResponseBody();
     }
