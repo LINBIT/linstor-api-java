@@ -35,6 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.TimeZone;
 
 import java.net.URLEncoder;
 
@@ -50,7 +51,7 @@ import com.linbit.linstor.api.auth.HttpBasicAuth;
 import com.linbit.linstor.api.auth.ApiKeyAuth;
 import com.linbit.linstor.api.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-18T05:15:14.614Z[GMT]")public class ApiClient {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-31T11:02:45.596Z[GMT]")public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected String basePath = "http://localhost:3370";
   protected boolean debugging = false;

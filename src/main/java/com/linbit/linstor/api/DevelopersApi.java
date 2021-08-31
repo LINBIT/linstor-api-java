@@ -11,6 +11,11 @@ import com.linbit.linstor.api.model.ApiCallRc;
 import com.linbit.linstor.api.model.ApiCallRcList;
 import com.linbit.linstor.api.model.AutoPlaceRequest;
 import com.linbit.linstor.api.model.AutoSelectFilter;
+import com.linbit.linstor.api.model.BackupAbort;
+import com.linbit.linstor.api.model.BackupCreate;
+import com.linbit.linstor.api.model.BackupList;
+import com.linbit.linstor.api.model.BackupRestore;
+import com.linbit.linstor.api.model.BackupShip;
 import com.linbit.linstor.api.model.ControllerConfig;
 import com.linbit.linstor.api.model.ControllerPropsModify;
 import com.linbit.linstor.api.model.ControllerVersion;
@@ -38,19 +43,25 @@ import com.linbit.linstor.api.model.PhysicalStorage;
 import com.linbit.linstor.api.model.PhysicalStorageCreate;
 import com.linbit.linstor.api.model.Properties;
 import com.linbit.linstor.api.model.PropsInfo;
+import com.linbit.linstor.api.model.RemoteList;
 import com.linbit.linstor.api.model.Resource;
 import com.linbit.linstor.api.model.ResourceConnection;
 import com.linbit.linstor.api.model.ResourceConnectionModify;
 import com.linbit.linstor.api.model.ResourceCreate;
 import com.linbit.linstor.api.model.ResourceDefinition;
+import com.linbit.linstor.api.model.ResourceDefinitionCloneRequest;
+import com.linbit.linstor.api.model.ResourceDefinitionCloneStarted;
+import com.linbit.linstor.api.model.ResourceDefinitionCloneStatus;
 import com.linbit.linstor.api.model.ResourceDefinitionCreate;
 import com.linbit.linstor.api.model.ResourceDefinitionModify;
 import com.linbit.linstor.api.model.ResourceGroup;
+import com.linbit.linstor.api.model.ResourceGroupAdjust;
 import com.linbit.linstor.api.model.ResourceGroupModify;
 import com.linbit.linstor.api.model.ResourceGroupSpawn;
 import com.linbit.linstor.api.model.ResourceMakeAvailable;
 import com.linbit.linstor.api.model.ResourceModify;
 import com.linbit.linstor.api.model.ResourceWithVolumes;
+import com.linbit.linstor.api.model.S3Remote;
 import com.linbit.linstor.api.model.SatelliteConfig;
 import com.linbit.linstor.api.model.Snapshot;
 import com.linbit.linstor.api.model.SnapshotRestore;
@@ -59,6 +70,7 @@ import com.linbit.linstor.api.model.SnapshotShippingStatus;
 import com.linbit.linstor.api.model.StoragePool;
 import com.linbit.linstor.api.model.StoragePoolDefinition;
 import com.linbit.linstor.api.model.StoragePoolDefinitionModify;
+import com.linbit.linstor.api.model.ToggleDiskDiskful;
 import com.linbit.linstor.api.model.Volume;
 import com.linbit.linstor.api.model.VolumeDefinition;
 import com.linbit.linstor.api.model.VolumeDefinitionCreate;
@@ -72,7 +84,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-18T05:15:14.614Z[GMT]")public class DevelopersApi {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-31T11:02:45.596Z[GMT]")public class DevelopersApi {
   private ApiClient apiClient;
 
   public DevelopersApi() {
@@ -96,9 +108,10 @@ import java.util.Map;
    * Activates the given resource if possible
    * @param resource resource to use (required)
    * @param node node to use (required)
+   * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public void activateRsc(String resource, String node) throws ApiException {
+  public ApiCallRcList activateRsc(String resource, String node) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'resource' is set
     if (resource == null) {
@@ -132,7 +145,8 @@ import java.util.Map;
 
     String[] localVarAuthNames = new String[] {  };
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * show controller config
@@ -422,9 +436,10 @@ import java.util.Map;
    * Deactivates the given resource if possible
    * @param resource resource to use (required)
    * @param node node to use (required)
+   * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public void deactivateRsc(String resource, String node) throws ApiException {
+  public ApiCallRcList deactivateRsc(String resource, String node) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'resource' is set
     if (resource == null) {
@@ -458,7 +473,8 @@ import java.util.Map;
 
     String[] localVarAuthNames = new String[] {  };
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * request sos report to download
@@ -2066,6 +2082,91 @@ import java.util.Map;
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * clones a resource definition with all resources
+   * Clones the resource definition with all resources and volume with the current data and the best/fastest possible clone method. Clone method depends on storage pool type:   * LVM -&gt; dd   * LVM-thin -&gt; snapshot -&gt; logical volume   * ZFS -&gt; zfs send/recieve 
+   * @param resource resource to use (required)
+   * @param body  (optional)
+   * @return ResourceDefinitionCloneStarted
+   * @throws ApiException if fails to make API call
+   */
+  public ResourceDefinitionCloneStarted resourceDefinitionClone(String resource, ResourceDefinitionCloneRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceDefinitionClone");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/clone"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ResourceDefinitionCloneStarted> localVarReturnType = new GenericType<ResourceDefinitionCloneStarted>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * retrieve status of the current clone process
+   * Get info of the current clone status. e.g. if completed. 
+   * @param resource resource to use (required)
+   * @param resourceClone resource clone name (required)
+   * @return ResourceDefinitionCloneStatus
+   * @throws ApiException if fails to make API call
+   */
+  public ResourceDefinitionCloneStatus resourceDefinitionCloneStatus(String resource, String resourceClone) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceDefinitionCloneStatus");
+    }
+    // verify the required parameter 'resourceClone' is set
+    if (resourceClone == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceClone' when calling resourceDefinitionCloneStatus");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/clone/{resourceClone}"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "resourceClone" + "\\}", apiClient.escapeString(resourceClone.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ResourceDefinitionCloneStatus> localVarReturnType = new GenericType<ResourceDefinitionCloneStatus>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * add a resource-definition
    * Adds a resource-definition.  Only required property is the name of the resource definition. All other properties are optional. 
    * @param body  (optional)
@@ -2266,9 +2367,9 @@ import java.util.Map;
   }
   /**
    * enables deployment of an external file for the given resource
-   * Makes sure the given external file is deployed with the given resource. 
+   * Enables deployment of a previously created external file for a resource definition. This has the effect that the external file will be created in a host&#x27;s file system whenever &#x60;resource&#x60; is deployed on that host. 
    * @param resource resource to use (required)
-   * @param extFileName Name of an external file (required)
+   * @param extFileName Name of an external file. Must be an absolute path in URL-encoding (required)
    * @throws ApiException if fails to make API call
    */
   public void resourceDeploy(String resource, String extFileName) throws ApiException {
@@ -2282,7 +2383,7 @@ import java.util.Map;
       throw new ApiException(400, "Missing the required parameter 'extFileName' when calling resourceDeploy");
     }
     // create path and map variables
-    String localVarPath = "/v1/resource-definitions/{resource}/deploy/{extFileName}"
+    String localVarPath = "/v1/resource-definitions/{resource}/files/{extFileName}"
       .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
       .replaceAll("\\{" + "extFileName" + "\\}", apiClient.escapeString(extFileName.toString()));
 
@@ -2449,6 +2550,80 @@ import java.util.Map;
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * adjusts (calls autoplace for) all resource-definitions of the given resource-group
+   * Adjusts (calls autoplace for) all resource-definitions of the given resource-group 
+   * @param resourceGroup resource group to use (required)
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList resourceGroupAdjust(String resourceGroup, ResourceGroupAdjust body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'resourceGroup' is set
+    if (resourceGroup == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceGroup' when calling resourceGroupAdjust");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-groups/{resource_group}/adjust"
+      .replaceAll("\\{" + "resource_group" + "\\}", apiClient.escapeString(resourceGroup.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * adjusts (calls autoplace for) all resource-definitions of all resource-groups
+   * Adjusts (calls autoplace for) all resource-definitions of all resource-groups 
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList resourceGroupAdjustAll(ResourceGroupAdjust body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/resource-groups/adjustall";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * add a resource-group
@@ -2693,9 +2868,10 @@ import java.util.Map;
    * @param resource resource to use (required)
    * @param node node to use (required)
    * @param body  (optional)
+   * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public void resourceMakeAvailableOnNode(String resource, String node, ResourceMakeAvailable body) throws ApiException {
+  public ApiCallRcList resourceMakeAvailableOnNode(String resource, String node, ResourceMakeAvailable body) throws ApiException {
     Object localVarPostBody = body;
     // verify the required parameter 'resource' is set
     if (resource == null) {
@@ -2729,7 +2905,8 @@ import java.util.Map;
 
     String[] localVarAuthNames = new String[] {  };
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * migrate a resource to another node
@@ -2737,11 +2914,12 @@ import java.util.Map;
    * @param resource resource to use (required)
    * @param node node to use (required)
    * @param fromnode node that should be deleted after the successful migrate (required)
+   * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList resourceMigrateDisk(String resource, String node, String fromnode) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiCallRcList resourceMigrateDisk(String resource, String node, String fromnode, ToggleDiskDiskful body) throws ApiException {
+    Object localVarPostBody = body;
     // verify the required parameter 'resource' is set
     if (resource == null) {
       throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceMigrateDisk");
@@ -2773,7 +2951,7 @@ import java.util.Map;
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -3196,11 +3374,12 @@ import java.util.Map;
    * toggle a resource to a diskful resource using the default storage pool 
    * @param resource resource to use (required)
    * @param node node to use (required)
+   * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList resourceToggleDiskful(String resource, String node) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiCallRcList resourceToggleDiskful(String resource, String node, ToggleDiskDiskful body) throws ApiException {
+    Object localVarPostBody = body;
     // verify the required parameter 'resource' is set
     if (resource == null) {
       throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceToggleDiskful");
@@ -3227,7 +3406,7 @@ import java.util.Map;
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -3242,11 +3421,12 @@ import java.util.Map;
    * @param resource resource to use (required)
    * @param node node to use (required)
    * @param storagepool Storage pool to use (required)
+   * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList resourceToggleDiskfulStoragepool(String resource, String node, String storagepool) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiCallRcList resourceToggleDiskfulStoragepool(String resource, String node, String storagepool, ToggleDiskDiskful body) throws ApiException {
+    Object localVarPostBody = body;
     // verify the required parameter 'resource' is set
     if (resource == null) {
       throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceToggleDiskfulStoragepool");
@@ -3278,7 +3458,7 @@ import java.util.Map;
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -3385,9 +3565,9 @@ import java.util.Map;
   }
   /**
    * disables deployment of an external file for the given resource
-   * Removes the requirement from this resource-definition to create the given external file. If nothing requires the external file to exist on a satellite, the satellite will delete the external file 
+   * Removes the requirement from this resource definition to create the given external file. If nothing requires the external file to exist on a satellite, the satellite also will delete the external file from the host&#x27;s file system. 
    * @param resource resource to use (required)
-   * @param extFileName Name of an external file (required)
+   * @param extFileName Name of an external file. Must be an absolute path in URL-encoding (required)
    * @throws ApiException if fails to make API call
    */
   public void resourceUndeploy(String resource, String extFileName) throws ApiException {
@@ -3401,7 +3581,7 @@ import java.util.Map;
       throw new ApiException(400, "Missing the required parameter 'extFileName' when calling resourceUndeploy");
     }
     // create path and map variables
-    String localVarPath = "/v1/resource-definitions/{resource}/undeploy/{extFileName}"
+    String localVarPath = "/v1/resource-definitions/{resource}/files/{extFileName}"
       .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
       .replaceAll("\\{" + "extFileName" + "\\}", apiClient.escapeString(extFileName.toString()));
 
@@ -3424,7 +3604,7 @@ import java.util.Map;
 
     String[] localVarAuthNames = new String[] {  };
 
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
    * lists all volumes of a resources
@@ -3784,6 +3964,40 @@ import java.util.Map;
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * ships a backup from one Linstor cluster to another
+   * ships a backup from one Linstor cluster to another
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList v1BackupsShipPost(BackupShip body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/backups/ship";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * List all properties of all entities
    * List all properties, including their names and descriptions, that can be set for any entity in the cluster. This includes the controller, resource definitions, resource groups, connections, volumes, etc. 
    * @return Map&lt;String, Map&lt;String, PropsInfo&gt;&gt;
@@ -3883,9 +4097,9 @@ import java.util.Map;
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
-   * delets the given external file
-   * Delets the given external file. This effectively also deletes the file on all satellites 
-   * @param extFileName Name of an external file (required)
+   * delete the given external file
+   * Deletes the given external file. This effectively also deletes the file on all satellites 
+   * @param extFileName Name of an external file. Must be an absolute path in URL-encoding (required)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
@@ -3924,7 +4138,7 @@ import java.util.Map;
   /**
    * shows the requested external file including its content
    * Shows the requested external file including its content
-   * @param extFileName Name of an external file (required)
+   * @param extFileName Name of an external file. Must be an absolute path in URL-encoding (required)
    * @return ExternalFile
    * @throws ApiException if fails to make API call
    */
@@ -3963,7 +4177,7 @@ import java.util.Map;
   /**
    * register or modify a previously registered external file
    * Register or modify a previously registered external file
-   * @param extFileName Name of an external file (required)
+   * @param extFileName Name of an external file. Must be an absolute path in URL-encoding (required)
    * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
@@ -4001,12 +4215,13 @@ import java.util.Map;
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
-   * list of registered external files
-   * List of previously registered external files. Content is intentionally skipped
+   * list registered external files
+   * Get a list of previously registered external files. File contents are not included, unless the \&quot;content\&quot; query parameter is explicitly set to true. 
+   * @param content Include file content in response. If not given, defaults to false. (optional, default to false)
    * @return List&lt;ExternalFile&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<ExternalFile> v1FilesGet() throws ApiException {
+  public List<ExternalFile> v1FilesGet(Boolean content) throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/v1/files";
@@ -4016,6 +4231,7 @@ import java.util.Map;
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "content", content));
 
 
     final String[] localVarAccepts = {
@@ -4104,6 +4320,407 @@ import java.util.Map;
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * delete a remote
+   * delete the given remote
+   * @param remoteName name of the remote (required)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList v1RemotesDelete(String remoteName) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'remoteName' is set
+    if (remoteName == null) {
+      throw new ApiException(400, "Missing the required parameter 'remoteName' when calling v1RemotesDelete");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/remotes";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "remote_name", remoteName));
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * list all remotes
+   * list of all known remotes on this cluster
+   * @return List&lt;RemoteList&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<RemoteList> v1RemotesGet() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/v1/remotes";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<RemoteList>> localVarReturnType = new GenericType<List<RemoteList>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * abort backups
+   * abort all backups of the given resource
+   * @param remoteName The remote to list the backups from (required)
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList v1RemotesRemoteNameBackupsAbortPost(String remoteName, BackupAbort body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'remoteName' is set
+    if (remoteName == null) {
+      throw new ApiException(400, "Missing the required parameter 'remoteName' when calling v1RemotesRemoteNameBackupsAbortPost");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/remotes/{remote_name}/backups/abort"
+      .replaceAll("\\{" + "remote_name" + "\\}", apiClient.escapeString(remoteName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * delete backups
+   * delete the specified backups
+   * @param remoteName The remote to delete the backups from (required)
+   * @param id ID of the specific backup to be deleted (optional)
+   * @param idPrefix ID prefix of possibly multiple backups to be deleted (optional)
+   * @param cascading deletes the specified backup(s) and all backups depending on it (optional)
+   * @param timestamp deletes all backups that were made before the given timestamp (optional)
+   * @param resourceName deletes all backups made from the specified resource (optional)
+   * @param nodeName deletes all backups made from the specified node (optional)
+   * @param allLocalCluster deletes all backups made from the current cluster (optional)
+   * @param all deletes ALL backups (optional)
+   * @param s3key deletes the backup associated with the s3key if it fits the naming-criteria (optional)
+   * @param s3keyForce deletes the s3key - regardless of whether it is a backup or not (optional)
+   * @param dryrun does not delete anything but returns an ApiCallRc with all entries that would be deleted (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList v1RemotesRemoteNameBackupsDelete(String remoteName, String id, String idPrefix, Boolean cascading, String timestamp, String resourceName, String nodeName, Boolean allLocalCluster, Boolean all, String s3key, String s3keyForce, Boolean dryrun) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'remoteName' is set
+    if (remoteName == null) {
+      throw new ApiException(400, "Missing the required parameter 'remoteName' when calling v1RemotesRemoteNameBackupsDelete");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/remotes/{remote_name}/backups"
+      .replaceAll("\\{" + "remote_name" + "\\}", apiClient.escapeString(remoteName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "id_prefix", idPrefix));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cascading", cascading));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "timestamp", timestamp));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "resource_name", resourceName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "node_name", nodeName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "all_local_cluster", allLocalCluster));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "all", all));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "s3key", s3key));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "s3key_force", s3keyForce));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dryrun", dryrun));
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * list all backups
+   * list all backups in a single bucket
+   * @param remoteName The remote to list the backups from (required)
+   * @param rscName Only show backups of this resource (optional)
+   * @return BackupList
+   * @throws ApiException if fails to make API call
+   */
+  public BackupList v1RemotesRemoteNameBackupsGet(String remoteName, String rscName) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'remoteName' is set
+    if (remoteName == null) {
+      throw new ApiException(400, "Missing the required parameter 'remoteName' when calling v1RemotesRemoteNameBackupsGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/remotes/{remote_name}/backups"
+      .replaceAll("\\{" + "remote_name" + "\\}", apiClient.escapeString(remoteName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rsc_name", rscName));
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<BackupList> localVarReturnType = new GenericType<BackupList>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * create a full or incremental backup
+   * create and ship a full backup to the target system
+   * @param remoteName The remote to ship the backups to (required)
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList v1RemotesRemoteNameBackupsPost(String remoteName, BackupCreate body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'remoteName' is set
+    if (remoteName == null) {
+      throw new ApiException(400, "Missing the required parameter 'remoteName' when calling v1RemotesRemoteNameBackupsPost");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/remotes/{remote_name}/backups"
+      .replaceAll("\\{" + "remote_name" + "\\}", apiClient.escapeString(remoteName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * restore backups
+   * restore the specified backups
+   * @param remoteName The remote to restore the backup from (required)
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList v1RemotesRemoteNameBackupsRestorePost(String remoteName, BackupRestore body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'remoteName' is set
+    if (remoteName == null) {
+      throw new ApiException(400, "Missing the required parameter 'remoteName' when calling v1RemotesRemoteNameBackupsRestorePost");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/remotes/{remote_name}/backups/restore"
+      .replaceAll("\\{" + "remote_name" + "\\}", apiClient.escapeString(remoteName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * list all s3 remotes
+   * list of all known s3 remotes on this cluster
+   * @return List&lt;S3Remote&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<S3Remote> v1RemotesS3Get() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/v1/remotes/s3";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<S3Remote>> localVarReturnType = new GenericType<List<S3Remote>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * creates a new s3 remote
+   * Creates a new s3 remote unless it already exists
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList v1RemotesS3Post(S3Remote body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/remotes/s3";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * modify a s3 remote
+   * modify an existing s3 remote
+   * @param remoteName name of the remote (required)
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList v1RemotesS3RemoteNamePut(String remoteName, S3Remote body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'remoteName' is set
+    if (remoteName == null) {
+      throw new ApiException(400, "Missing the required parameter 'remoteName' when calling v1RemotesS3RemoteNamePut");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/remotes/s3/{remoteName}"
+      .replaceAll("\\{" + "remoteName" + "\\}", apiClient.escapeString(remoteName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * List all resource-definition properties
