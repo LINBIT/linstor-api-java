@@ -64,7 +64,6 @@ import com.linbit.linstor.api.model.VolumeModify;
 
 import java.io.File;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -191,7 +190,12 @@ public class DevelopersApiTest {
     public void createSOSReportTest() throws ApiException {
         String node = null;
         Long since = null;
-        ApiCallRcList response = api.createSOSReport(node, since);
+        ApiCallRcList response = api.createSOSReport(
+            Collections.singletonList(node),
+            Collections.emptyList(),
+            Collections.emptyList(),
+            true,
+            since);
 
         // TODO: test validations
     }
@@ -222,9 +226,14 @@ public class DevelopersApiTest {
     @Test
     @Ignore
     public void downloadSOSReportTest() throws ApiException {
-        String node = null;
         Long since = null;
-        File response = api.downloadSOSReport(node, since);
+        File response = api.downloadSOSReport(
+            Collections.emptyList(),
+            Collections.emptyList(),
+            Collections.emptyList(),
+            true,
+            since
+        );
 
         // TODO: test validations
     }
@@ -326,7 +335,7 @@ public class DevelopersApiTest {
         Integer limit = null;
         List<ErrorReport> response = api.errorReportList(node, since, to, withContent, offset, limit);
 
-        Assert.assertEquals(0, response.size());
+        Assert.assertEquals(1, response.size());
     }
     /**
      * query the specified reportid
@@ -630,7 +639,7 @@ public class DevelopersApiTest {
         List<String> storagePools = null;
         Integer offset = null;
         Integer limit = null;
-        List<StoragePool> response = api.nodeStoragePoolList(node, nodes, storagePools, offset, limit);
+        List<StoragePool> response = api.nodeStoragePoolList(node, nodes, storagePools, offset, limit, false);
 
         // TODO: test validations
     }
@@ -1117,7 +1126,7 @@ public class DevelopersApiTest {
     public void resourceSnapshotDeleteTest() throws ApiException {
         String resource = null;
         String snapshot = null;
-        ApiCallRcList response = api.resourceSnapshotDelete(resource, snapshot);
+        ApiCallRcList response = api.resourceSnapshotDelete(resource, snapshot, Collections.emptyList());
 
         // TODO: test validations
     }
@@ -1545,7 +1554,7 @@ public class DevelopersApiTest {
         List<String> props = null;
         Integer offset = null;
         Integer limit = null;
-        List<StoragePool> response = api.viewStoragePools(nodes, storagePools, props, offset, limit);
+        List<StoragePool> response = api.viewStoragePools(nodes, storagePools, props, offset, limit, false);
 
         // TODO: test validations
     }

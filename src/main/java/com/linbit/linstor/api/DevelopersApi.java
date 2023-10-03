@@ -114,7 +114,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-10-03T09:13:01.489Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-10-03T12:20:57.656Z[GMT]")
 public class DevelopersApi {
   private ApiClient apiClient;
 
@@ -1979,13 +1979,10 @@ public class DevelopersApi {
    * Delete a storage pool
    * @param node node to use (required)
    * @param storagepool Storage pool to use (required)
-   * @param offset number of records to skip for pagination (optional)
-   * @param limit maximum number of records to return (optional)
-   * @param cached query data from cache if available (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList nodeStoragePoolDelete(String node, String storagepool, Integer offset, Integer limit, Boolean cached) throws ApiException {
+  public ApiCallRcList nodeStoragePoolDelete(String node, String storagepool) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'node' is set
     if (node == null) {
@@ -2005,9 +2002,6 @@ public class DevelopersApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cached", cached));
 
 
     final String[] localVarAccepts = {
@@ -2080,13 +2074,10 @@ public class DevelopersApi {
    * @param node node to use (required)
    * @param storagepool Storage pool to use (required)
    * @param body  (optional)
-   * @param offset number of records to skip for pagination (optional)
-   * @param limit maximum number of records to return (optional)
-   * @param cached query data from cache if available (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList nodeStoragePoolModify(String node, String storagepool, StoragePoolDefinitionModify body, Integer offset, Integer limit, Boolean cached) throws ApiException {
+  public ApiCallRcList nodeStoragePoolModify(String node, String storagepool, StoragePoolDefinitionModify body) throws ApiException {
     Object localVarPostBody = body;
     // verify the required parameter 'node' is set
     if (node == null) {
@@ -2106,9 +2097,6 @@ public class DevelopersApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cached", cached));
 
 
     final String[] localVarAccepts = {
