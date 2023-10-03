@@ -8,13 +8,15 @@ import com.linbit.linstor.api.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.linbit.linstor.api.model.ApiCallRcList;
+import com.linbit.linstor.api.model.NodeRestore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-08-31T11:02:45.596Z[GMT]")public class DefaultApi {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-10-03T09:13:01.489Z[GMT]")
+public class DefaultApi {
   private ApiClient apiClient;
 
   public DefaultApi() {
@@ -37,11 +39,12 @@ import java.util.Map;
    * restore node
    * restore an evicted node
    * @param node node to use (required)
+   * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList v1NodesNodeRestorePut(String node) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiCallRcList v1NodesNodeRestorePut(String node, NodeRestore body) throws ApiException {
+    Object localVarPostBody = body;
     // verify the required parameter 'node' is set
     if (node == null) {
       throw new ApiException(400, "Missing the required parameter 'node' when calling v1NodesNodeRestorePut");
@@ -63,7 +66,7 @@ import java.util.Map;
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

@@ -6,11 +6,13 @@ echo "please execute in linstor-api-java"
 
 LINSTOR_DIR=$PWD/../linstor-server
 
-docker pull swaggerapi/swagger-codegen-cli-v3
+SWAGGER_VERSION=3.0.44
+
+docker pull swaggerapi/swagger-codegen-cli-v3:$SWAGGER_VERSION
 
 docker run -it --rm \
 	-v $LINSTOR_DIR:/linstor \
-	-v $PWD:/tmp/gen swaggerapi/swagger-codegen-cli-v3 \
+	-v $PWD:/tmp/gen swaggerapi/swagger-codegen-cli-v3:$SWAGGER_VERSION \
 	generate -l java -i /linstor/docs/rest_v1_openapi.yaml -o /tmp/gen/ \
 	--invoker-package com.linbit.linstor.api \
 	--api-package com.linbit.linstor.api \
