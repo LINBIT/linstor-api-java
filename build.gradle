@@ -159,8 +159,8 @@ publishing {
 
 ext {
     swagger_annotations_version = "2.0.0"
-    jackson_version = "2.12.5"
-    jersey_version = "2.26"
+    jackson_version = "2.15.2"
+    jersey_version = "2.40"
     junit_version = "4.12"
 
     it.'signing.secretKeyRingFile' = project.findProperty('java-linstor.signing.secretKeyRingFile') ?:
