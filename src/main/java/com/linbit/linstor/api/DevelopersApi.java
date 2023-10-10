@@ -24,7 +24,6 @@ import com.linbit.linstor.api.model.ControllerConfig;
 import com.linbit.linstor.api.model.ControllerPropsModify;
 import com.linbit.linstor.api.model.ControllerVersion;
 import com.linbit.linstor.api.model.CreateMultiSnapshotRequest;
-import com.linbit.linstor.api.model.CreateMultiSnapshotResponse;
 import com.linbit.linstor.api.model.DatabaseBackupRequest;
 import com.linbit.linstor.api.model.DrbdProxyEnable;
 import com.linbit.linstor.api.model.DrbdProxyModify;
@@ -114,7 +113,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-10-10T07:49:59.627Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-10-10T11:02:09.120Z[GMT]")
 public class DevelopersApi {
   private ApiClient apiClient;
 
@@ -429,10 +428,10 @@ public class DevelopersApi {
    * creates one snapshot for multiple resources each
    * Suspends IO for all given resources before taking the snapshots on all participating nodes before resuming IO again. 
    * @param body  (optional)
-   * @return CreateMultiSnapshotResponse
+   * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public CreateMultiSnapshotResponse createMultiSnapshot(CreateMultiSnapshotRequest body) throws ApiException {
+  public ApiCallRcList createMultiSnapshot(CreateMultiSnapshotRequest body) throws ApiException {
     Object localVarPostBody = body;
     // create path and map variables
     String localVarPath = "/v1/actions/snapshot/multi";
@@ -456,7 +455,7 @@ public class DevelopersApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    GenericType<CreateMultiSnapshotResponse> localVarReturnType = new GenericType<CreateMultiSnapshotResponse>() {};
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
