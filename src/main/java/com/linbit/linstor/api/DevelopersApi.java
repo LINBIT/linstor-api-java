@@ -114,7 +114,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-10-03T12:20:57.656Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-10-10T07:49:59.627Z[GMT]")
 public class DevelopersApi {
   private ApiClient apiClient;
 
@@ -435,7 +435,7 @@ public class DevelopersApi {
   public CreateMultiSnapshotResponse createMultiSnapshot(CreateMultiSnapshotRequest body) throws ApiException {
     Object localVarPostBody = body;
     // create path and map variables
-    String localVarPath = "/v1/action/snapshot/multi";
+    String localVarPath = "/v1/actions/snapshot/multi";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
