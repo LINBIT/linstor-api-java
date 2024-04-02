@@ -6,7 +6,7 @@ echo "please execute in linstor-api-java"
 
 LINSTOR_DIR=$PWD/../linstor-server
 
-SWAGGER_VERSION=3.0.44
+SWAGGER_VERSION=3.0.54
 
 docker pull swaggerapi/swagger-codegen-cli-v3:$SWAGGER_VERSION
 
