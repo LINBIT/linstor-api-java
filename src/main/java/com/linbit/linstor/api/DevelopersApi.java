@@ -37,6 +37,7 @@ import com.linbit.linstor.api.model.ExosDefaultsModify;
 import com.linbit.linstor.api.model.ExosEnclosure;
 import com.linbit.linstor.api.model.ExosEnclosureEvent;
 import com.linbit.linstor.api.model.ExosEnclosureHealth;
+import com.linbit.linstor.api.model.ExtFileCheckResult;
 import com.linbit.linstor.api.model.ExternalFile;
 import java.io.File;
 import com.linbit.linstor.api.model.InlineResponse200;
@@ -104,6 +105,7 @@ import com.linbit.linstor.api.model.Volume;
 import com.linbit.linstor.api.model.VolumeDefinition;
 import com.linbit.linstor.api.model.VolumeDefinitionCreate;
 import com.linbit.linstor.api.model.VolumeDefinitionModify;
+import com.linbit.linstor.api.model.VolumeDefinitionModifyPassphrase;
 import com.linbit.linstor.api.model.VolumeGroup;
 import com.linbit.linstor.api.model.VolumeGroupModify;
 import com.linbit.linstor.api.model.VolumeModify;
@@ -113,7 +115,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-10-10T11:02:09.120Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-02T13:40:09.628252133Z[Etc/UTC]")
 public class DevelopersApi {
   private ApiClient apiClient;
 
@@ -933,7 +935,9 @@ public class DevelopersApi {
    * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiCallRcList exosCreate(ExosEnclosure body) throws ApiException {
     Object localVarPostBody = body;
     // create path and map variables
@@ -967,7 +971,9 @@ public class DevelopersApi {
    * @param enclosure Name of the enclosure (required)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiCallRcList exosDelete(String enclosure) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'enclosure' is set
@@ -1007,7 +1013,9 @@ public class DevelopersApi {
    * @param count Number of events to fetch (optional)
    * @return List&lt;ExosEnclosureEvent&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public List<ExosEnclosureEvent> exosDescribe(String enclosure, Integer count) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'enclosure' is set
@@ -1046,7 +1054,9 @@ public class DevelopersApi {
    * Lists the connection-mesh of EXOS Ports to Linstor Nodes
    * @return List&lt;ExosConnectionMap&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public List<ExosConnectionMap> exosMap() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
@@ -1081,7 +1091,9 @@ public class DevelopersApi {
    * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiCallRcList exosModify(String enclosure, ExosEnclosure body) throws ApiException {
     Object localVarPostBody = body;
     // verify the required parameter 'enclosure' is set
@@ -1120,7 +1132,9 @@ public class DevelopersApi {
    * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiCallRcList exosModifyDefault(ExosDefaultsModify body) throws ApiException {
     Object localVarPostBody = body;
     // create path and map variables
@@ -4718,6 +4732,51 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * checks whether an extFile can be written
+   * checks whether the given extFile can be written on the given node
+   * @param extFileName Name of an external file. Must be an absolute path in URL-encoding (required)
+   * @param node node to use (required)
+   * @return ExtFileCheckResult
+   * @throws ApiException if fails to make API call
+   */
+  public ExtFileCheckResult v1FilesExtFileNameCheckNodeGet(String extFileName, String node) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'extFileName' is set
+    if (extFileName == null) {
+      throw new ApiException(400, "Missing the required parameter 'extFileName' when calling v1FilesExtFileNameCheckNodeGet");
+    }
+    // verify the required parameter 'node' is set
+    if (node == null) {
+      throw new ApiException(400, "Missing the required parameter 'node' when calling v1FilesExtFileNameCheckNodeGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/files/{extFileName}/check/{node}"
+      .replaceAll("\\{" + "extFileName" + "\\}", apiClient.escapeString(extFileName.toString()))
+      .replaceAll("\\{" + "node" + "\\}", apiClient.escapeString(node.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ExtFileCheckResult> localVarReturnType = new GenericType<ExtFileCheckResult>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * delete the given external file
    * Deletes the given external file. This effectively also deletes the file on all satellites 
    * @param extFileName Name of an external file. Must be an absolute path in URL-encoding (required)
@@ -6272,7 +6331,9 @@ public class DevelopersApi {
    * Lists default setting for all EXOS enclosures
    * @return List&lt;ExosDefaults&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public List<ExosDefaults> v1VendorSeagateExosDefaultsGet() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
@@ -6306,7 +6367,9 @@ public class DevelopersApi {
    * @param nocache Force recaching before response (optional)
    * @return List&lt;ExosEnclosureHealth&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public List<ExosEnclosureHealth> v1VendorSeagateExosEnclosuresGet(Boolean nocache) throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
@@ -6820,6 +6883,52 @@ public class DevelopersApi {
     }
     // create path and map variables
     String localVarPath = "/v1/resource-definitions/{resource}/volume-definitions/{volume_number}"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "volume_number" + "\\}", apiClient.escapeString(volumeNumber.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * modify encryption passphrase for a volume definition
+   * Sets a new user provied encryption passphrase
+   * @param resource resource to use (required)
+   * @param volumeNumber Volume number of the definition (required)
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList volumeDefinitionModifyPassphrase(String resource, Integer volumeNumber, VolumeDefinitionModifyPassphrase body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling volumeDefinitionModifyPassphrase");
+    }
+    // verify the required parameter 'volumeNumber' is set
+    if (volumeNumber == null) {
+      throw new ApiException(400, "Missing the required parameter 'volumeNumber' when calling volumeDefinitionModifyPassphrase");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/volume-definitions/{volume_number}/encryption-passphrase"
       .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
       .replaceAll("\\{" + "volume_number" + "\\}", apiClient.escapeString(volumeNumber.toString()));
 
