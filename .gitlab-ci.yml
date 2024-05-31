@@ -21,6 +21,9 @@ build:
 test:
   stage: test
   script:
+    - |
+      curl -X POST -H "Content-Type: application/json" -d '{"resource_definition": {"name": "rsc-restart"}}' http://linstor-controller:3370/v1/resource-definitions
+      curl -X POST -H "Content-Type: application/json" -d '{"volume_definition": {"size_kib": 104857600, "flags": []}, "drbd_minor_number": 1002}' http://linstor-controller:3370/v1/resource-definitions/rsc-restart/volume-definitions
     - JAVA_OPTS="-ea" ./gradlew test
   artifacts:
     reports:

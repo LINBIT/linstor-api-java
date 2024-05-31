@@ -20,6 +20,7 @@ import com.linbit.linstor.api.model.ControllerPropsModify;
 import com.linbit.linstor.api.model.ControllerVersion;
 import com.linbit.linstor.api.model.DrbdProxyEnable;
 import com.linbit.linstor.api.model.DrbdProxyModify;
+import com.linbit.linstor.api.model.DrbdVolumeDefinition;
 import com.linbit.linstor.api.model.ErrorReport;
 import com.linbit.linstor.api.model.ErrorReportDelete;
 import com.linbit.linstor.api.model.InlineResponse200;
@@ -1601,14 +1602,16 @@ public class DevelopersApiTest {
      *          if the Api call fails
      */
     @Test
-    @Ignore
     public void volumeDefinitionListTest() throws ApiException {
-        String resource = "muh";
+        String resource = "rsc-restart";
         Integer offset = null;
         Integer limit = null;
         List<VolumeDefinition> response = api.volumeDefinitionList(resource, offset, limit);
 
-        Assert.assertTrue(response.size() > 0);
+        Assert.assertFalse(response.isEmpty());
+        Assert.assertNotNull(response.get(0).getLayerData().get(0).getData());
+        DrbdVolumeDefinition data = (DrbdVolumeDefinition) response.get(0).getLayerData().get(0).getData();
+        Assert.assertEquals(1002, (long)data.getMinorNumber());
         // TODO: test validations
     }
     /**
