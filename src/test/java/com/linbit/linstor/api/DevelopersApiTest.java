@@ -1497,6 +1497,10 @@ public class DevelopersApiTest {
         for (ResourceWithVolumes r : response) {
             System.out.println(r.getName());
         }
+
+        final ResourceWithVolumes rsc1 = response.get(0);
+        System.out.println(rsc1.getLayerObject().getDrbd().getDrbdVolumes()
+                .get(0).getDrbdVolumeDefinition().getMinorNumber());
         // TODO: test validations
     }
     /**
