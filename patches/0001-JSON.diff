@@ -1,0 +1,12 @@
+diff --git a/src/main/java/com/linbit/linstor/api/JSON.java b/src/main/java/com/linbit/linstor/api/JSON.java
+index f92a035..0754afa 100644
+--- a/src/main/java/com/linbit/linstor/api/JSON.java
++++ b/src/main/java/com/linbit/linstor/api/JSON.java
+@@ -17,6 +17,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
+     mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+     mapper.configure(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE, false);
++    mapper.configure(DeserializationFeature.FAIL_ON_MISSING_EXTERNAL_TYPE_ID_PROPERTY, false);
+     mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+     mapper.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
+     mapper.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);

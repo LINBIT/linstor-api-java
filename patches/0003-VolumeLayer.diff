@@ -1,0 +1,25 @@
+diff --git a/src/main/java/com/linbit/linstor/api/model/VolumeLayer.java b/src/main/java/com/linbit/linstor/api/model/VolumeLayer.java
+index 7afe9fe..1540db4 100644
+--- a/src/main/java/com/linbit/linstor/api/model/VolumeLayer.java
++++ b/src/main/java/com/linbit/linstor/api/model/VolumeLayer.java
+@@ -29,6 +29,20 @@ public class VolumeLayer {
+   @JsonProperty("type")
+   private LayerType type = null;
+ 
++  @com.fasterxml.jackson.annotation.JsonTypeInfo(
++          use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME,
++          include = com.fasterxml.jackson.annotation.JsonTypeInfo.As.EXTERNAL_PROPERTY,
++          property = "type"
++  )
++  @com.fasterxml.jackson.annotation.JsonSubTypes({
++          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = DrbdVolume.class, name = "DRBD"),
++          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StorageVolume.class, name = "STORAGE"),
++          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = CacheVolume.class, name = "CACHE"),
++          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = LUKSVolume.class, name = "LUKS"),
++          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = NVMEVolume.class, name = "NVME"),
++          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = WritecacheVolume.class, name = "WRITECACHE"),
++          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = BCacheVolume.class, name = "BCACHE")
++  })
+   @JsonProperty("data")
+   private OneOfVolumeLayerData data = null;
+ 

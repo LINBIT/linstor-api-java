@@ -1,0 +1,20 @@
+diff --git a/src/main/java/com/linbit/linstor/api/model/VolumeDefinitionLayer.java b/src/main/java/com/linbit/linstor/api/model/VolumeDefinitionLayer.java
+index 3e6f207..7618462 100644
+--- a/src/main/java/com/linbit/linstor/api/model/VolumeDefinitionLayer.java
++++ b/src/main/java/com/linbit/linstor/api/model/VolumeDefinitionLayer.java
+@@ -29,6 +29,15 @@ public class VolumeDefinitionLayer {
+   @JsonProperty("type")
+   private LayerType type = null;
+ 
++  @com.fasterxml.jackson.annotation.JsonTypeInfo(
++          use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME,
++          include = com.fasterxml.jackson.annotation.JsonTypeInfo.As.EXTERNAL_PROPERTY,
++          property = "type"
++  )
++  @com.fasterxml.jackson.annotation.JsonSubTypes({
++          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = DrbdVolumeDefinition.class, name = "DRBD"),
++          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StorageVolume.class, name = "STORAGE"),
++  })
+   @JsonProperty("data")
+   private OneOfVolumeDefinitionLayerData data = null;
+ 

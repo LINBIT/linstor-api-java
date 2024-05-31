@@ -23,12 +23,21 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * VolumeDefinitionLayer
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-02T13:40:09.628252133Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-31T12:56:41.006567816Z[Etc/UTC]")
 
 public class VolumeDefinitionLayer {
   @JsonProperty("type")
   private LayerType type = null;
 
+  @com.fasterxml.jackson.annotation.JsonTypeInfo(
+          use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME,
+          include = com.fasterxml.jackson.annotation.JsonTypeInfo.As.EXTERNAL_PROPERTY,
+          property = "type"
+  )
+  @com.fasterxml.jackson.annotation.JsonSubTypes({
+          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = DrbdVolumeDefinition.class, name = "DRBD"),
+          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StorageVolume.class, name = "STORAGE"),
+  })
   @JsonProperty("data")
   private OneOfVolumeDefinitionLayerData data = null;
 

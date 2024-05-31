@@ -28,3 +28,4 @@ sudo chown -R $USER:$USER $PWD
 sed -i 's/^ \* Linstor REST API V1  The.*/ \*/g' $PWD/src/main/java/com/linbit/linstor/api/model/*.java \
   $PWD/src/main/java/com/linbit/linstor/api/auth/*.java $PWD/src/main/java/com/linbit/linstor/api/*.java
 
+git apply patches/*.diff

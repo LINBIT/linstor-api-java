@@ -12,19 +12,9 @@
 
 package com.linbit.linstor.api.model;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
 /**
 * OneOfVolumeDefinitionLayerData
 */
-@JsonTypeInfo(
-    use = JsonTypeInfo.Id.NAME,
-    property = "type"
-)
-@JsonSubTypes({
-    @JsonSubTypes.Type(value = DrbdVolumeDefinition.class, name = "DRBD")
-})
 public interface OneOfVolumeDefinitionLayerData {
 
 }

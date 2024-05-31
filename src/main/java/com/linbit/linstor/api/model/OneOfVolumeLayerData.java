@@ -12,25 +12,9 @@
 
 package com.linbit.linstor.api.model;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
 /**
 * OneOfVolumeLayerData
 */
-@JsonTypeInfo(
-    use = JsonTypeInfo.Id.NAME,
-    property = "type"
-)
-@JsonSubTypes({
-    @JsonSubTypes.Type(value = DrbdVolume.class, name = "DRBD"),
-    @JsonSubTypes.Type(value = StorageVolume.class, name = "STORAGE"),
-    @JsonSubTypes.Type(value = CacheVolume.class, name = "CACHE"),
-    @JsonSubTypes.Type(value = LUKSVolume.class, name = "LUKS"),
-    @JsonSubTypes.Type(value = NVMEVolume.class, name = "NVME"),
-    @JsonSubTypes.Type(value = WritecacheVolume.class, name = "WRITECACHE"),
-    @JsonSubTypes.Type(value = BCacheVolume.class, name = "BCACHE")
-})
 public interface OneOfVolumeLayerData {
 
 }

@@ -23,12 +23,26 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * VolumeLayer
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-02T13:40:09.628252133Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-31T12:56:41.006567816Z[Etc/UTC]")
 
 public class VolumeLayer {
   @JsonProperty("type")
   private LayerType type = null;
 
+  @com.fasterxml.jackson.annotation.JsonTypeInfo(
+          use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.NAME,
+          include = com.fasterxml.jackson.annotation.JsonTypeInfo.As.EXTERNAL_PROPERTY,
+          property = "type"
+  )
+  @com.fasterxml.jackson.annotation.JsonSubTypes({
+          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = DrbdVolume.class, name = "DRBD"),
+          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = StorageVolume.class, name = "STORAGE"),
+          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = CacheVolume.class, name = "CACHE"),
+          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = LUKSVolume.class, name = "LUKS"),
+          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = NVMEVolume.class, name = "NVME"),
+          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = WritecacheVolume.class, name = "WRITECACHE"),
+          @com.fasterxml.jackson.annotation.JsonSubTypes.Type(value = BCacheVolume.class, name = "BCACHE")
+  })
   @JsonProperty("data")
   private OneOfVolumeLayerData data = null;
 
