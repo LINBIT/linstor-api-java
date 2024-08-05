@@ -8,8 +8,6 @@
 # You can make changes and tell Swagger Codgen to ignore just this file by uncommenting the following line:
 #ApiClient.cs
 src/**/ApiException.java
-src/**/ApiCallRc.java
-src/**/ApiCallRcList.java
 src/**/OneOfResourceDefinitionLayerData.java
 src/**/OneOfVolumeDefinitionLayerData.java
 src/**/OneOfVolumeLayerData.java

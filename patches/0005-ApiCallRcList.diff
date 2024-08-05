@@ -1,0 +1,18 @@
+diff --git a/src/main/java/com/linbit/linstor/api/model/ApiCallRcList.java b/src/main/java/com/linbit/linstor/api/model/ApiCallRcList.java
+index e34e2c2..51d5658 100644
+--- a/src/main/java/com/linbit/linstor/api/model/ApiCallRcList.java
++++ b/src/main/java/com/linbit/linstor/api/model/ApiCallRcList.java
+@@ -62,4 +62,13 @@ public class ApiCallRcList extends ArrayList<ApiCallRc> {
+     return o.toString().replace("\n", "\n    ");
+   }
+ 
++  public boolean hasError() {
++    for (ApiCallRc apiCallRc : this) {
++      if (apiCallRc.isError()) {
++        return true;
++      }
++    }
++    return false;
++  }
++
+ }
