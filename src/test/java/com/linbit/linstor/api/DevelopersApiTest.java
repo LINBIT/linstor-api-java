@@ -501,10 +501,20 @@ public class DevelopersApiTest {
      *          if the Api call fails
      */
     @Test
-    @Ignore
-    public void nodeAddTest() throws ApiException {
-        Node body = null;
-        ApiCallRcList response = api.nodeAdd(body);
+    public void nodeAddTest() {
+        Node body = new Node();
+        body.setName("bla");
+        NetInterface ni = new NetInterface();
+        ni.setName("default");
+        ni.setAddress("10.0.0.1");
+        body.addNetInterfacesItem(ni);
+        try {
+            ApiCallRcList response = api.nodeAdd(body);
+        } catch (ApiException apiExc) {
+            String bestMessage = apiExc.getBestMessage();;
+            Assert.assertNotNull(bestMessage);
+            Assert.assertFalse(bestMessage.startsWith("["));
+        }
 
         // TODO: test validations
     }
