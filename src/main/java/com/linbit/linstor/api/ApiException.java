@@ -94,7 +94,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
     }
 
     public ApiCallRcList getApiCallRcList() {
-        ObjectMapper mapper = new ObjectMapper();
+        ApiClient apiClient = new ApiClient();
+        ObjectMapper mapper = apiClient.getJSON().getContext(String.class);
         if (getResponseBody() != null) {
             try
             {
