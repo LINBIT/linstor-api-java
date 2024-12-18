@@ -888,7 +888,7 @@ public class DevelopersApiTest {
     public void resourceDeleteTest() throws ApiException {
         String resource = null;
         String node = null;
-        ApiCallRcList response = api.resourceDelete(resource, node);
+        ApiCallRcList response = api.resourceDelete(resource, node, true);
 
         // TODO: test validations
     }

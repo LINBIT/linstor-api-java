@@ -115,9 +115,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-02T13:40:09.628252133Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-18T06:34:31.141535853Z[Etc/UTC]")
 public class DevelopersApi {
   private ApiClient apiClient;
+  private Map<String, String> headers;
 
   public DevelopersApi() {
     this(Configuration.getDefaultApiClient());
@@ -133,6 +134,10 @@ public class DevelopersApi {
 
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  public void setHeadersOverrides(Map<String, String> headers) {
+    this.headers = headers;
   }
 
   /**
@@ -178,6 +183,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -212,6 +222,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -245,6 +260,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ControllerConfig> localVarReturnType = new GenericType<ControllerConfig>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -284,6 +304,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -317,6 +342,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Properties> localVarReturnType = new GenericType<Properties>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -351,6 +381,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -384,6 +419,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ControllerVersion> localVarReturnType = new GenericType<ControllerVersion>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -424,6 +464,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -458,6 +503,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -501,6 +551,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -535,6 +590,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -580,6 +640,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -623,6 +688,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<File> localVarReturnType = new GenericType<File>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -657,6 +727,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -691,6 +766,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -725,6 +805,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -759,6 +844,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -798,6 +888,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -843,6 +938,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ErrorReport>> localVarReturnType = new GenericType<List<ErrorReport>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -894,6 +994,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ErrorReport>> localVarReturnType = new GenericType<List<ErrorReport>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -927,6 +1032,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ErrorReportStats> localVarReturnType = new GenericType<ErrorReportStats>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -963,6 +1073,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1004,6 +1119,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1047,6 +1167,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ExosEnclosureEvent>> localVarReturnType = new GenericType<List<ExosEnclosureEvent>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1082,6 +1207,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ExosConnectionMap>> localVarReturnType = new GenericType<List<ExosConnectionMap>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1124,6 +1254,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1160,6 +1295,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1199,6 +1339,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<PhysicalStorageNode>> localVarReturnType = new GenericType<List<PhysicalStorageNode>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1238,6 +1383,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1277,6 +1427,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<KeyValueStore>> localVarReturnType = new GenericType<List<KeyValueStore>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1317,6 +1472,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1350,6 +1510,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<KeyValueStore>> localVarReturnType = new GenericType<List<KeyValueStore>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1390,6 +1555,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1435,6 +1605,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1478,6 +1653,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<NetInterface>> localVarReturnType = new GenericType<List<NetInterface>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1524,6 +1704,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1558,6 +1743,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1592,6 +1782,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1638,6 +1833,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1675,6 +1875,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<NodeConnection>> localVarReturnType = new GenericType<List<NodeConnection>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1714,6 +1919,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1753,6 +1963,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1794,6 +2009,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<Node>> localVarReturnType = new GenericType<List<Node>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1833,6 +2053,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1873,6 +2098,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1912,6 +2142,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1945,6 +2180,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<NodeStats> localVarReturnType = new GenericType<NodeStats>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -1985,6 +2225,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2030,6 +2275,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2079,6 +2329,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<StoragePool>> localVarReturnType = new GenericType<List<StoragePool>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2125,6 +2380,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2159,6 +2419,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<QueryAllSizeInfoResponse> localVarReturnType = new GenericType<QueryAllSizeInfoResponse>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2193,6 +2458,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<MaxVolumeSizes> localVarReturnType = new GenericType<MaxVolumeSizes>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "OPTIONS", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2234,6 +2504,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<MaxVolumeSizes> localVarReturnType = new GenericType<MaxVolumeSizes>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2274,6 +2549,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<QuerySizeInfoResponse> localVarReturnType = new GenericType<QuerySizeInfoResponse>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2314,6 +2594,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2365,6 +2650,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ResourceConnection>> localVarReturnType = new GenericType<List<ResourceConnection>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2417,6 +2707,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2456,6 +2751,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ResourceConnection>> localVarReturnType = new GenericType<List<ResourceConnection>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2496,6 +2796,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2542,6 +2847,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2582,6 +2892,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ResourceDefinitionCloneStarted> localVarReturnType = new GenericType<ResourceDefinitionCloneStarted>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2627,6 +2942,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ResourceDefinitionCloneStatus> localVarReturnType = new GenericType<ResourceDefinitionCloneStatus>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2661,6 +2981,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2700,6 +3025,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2741,6 +3071,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ResourceDefinition>> localVarReturnType = new GenericType<List<ResourceDefinition>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2781,6 +3116,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2814,6 +3154,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ResourceDefinitionStats> localVarReturnType = new GenericType<ResourceDefinitionStats>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2853,6 +3198,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ResourceDefinitionSyncStatus> localVarReturnType = new GenericType<ResourceDefinitionSyncStatus>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2860,10 +3210,11 @@ public class DevelopersApi {
    * Delete a resource on a node
    * @param resource resource to use (required)
    * @param node node to use (required)
+   * @param keepTiebreaker Ensures that the tiebreaker resource is kept, possibly not deleting the given resource (optional, default to false)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList resourceDelete(String resource, String node) throws ApiException {
+  public ApiCallRcList resourceDelete(String resource, String node, Boolean keepTiebreaker) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'resource' is set
     if (resource == null) {
@@ -2883,6 +3234,7 @@ public class DevelopersApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "keep_tiebreaker", keepTiebreaker));
 
 
     final String[] localVarAccepts = {
@@ -2898,6 +3250,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -2940,6 +3297,11 @@ public class DevelopersApi {
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] {  };
+
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
 
     apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
@@ -2992,6 +3354,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3044,6 +3411,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3084,6 +3456,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3124,6 +3501,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3158,6 +3540,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3192,6 +3579,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3231,6 +3623,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3272,6 +3669,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ResourceGroup>> localVarReturnType = new GenericType<List<ResourceGroup>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3312,6 +3714,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3352,6 +3759,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3385,6 +3797,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ResourceGroupStats> localVarReturnType = new GenericType<ResourceGroupStats>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3428,6 +3845,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<Resource>> localVarReturnType = new GenericType<List<Resource>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3474,6 +3896,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3526,6 +3953,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3583,6 +4015,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3629,6 +4066,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3669,6 +4111,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3716,6 +4163,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3761,6 +4213,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Snapshot> localVarReturnType = new GenericType<Snapshot>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3807,6 +4264,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3852,6 +4314,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3891,6 +4358,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<Snapshot>> localVarReturnType = new GenericType<List<Snapshot>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3937,6 +4409,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -3983,6 +4460,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4035,6 +4517,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4080,6 +4567,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4131,6 +4623,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4173,6 +4670,11 @@ public class DevelopersApi {
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] {  };
+
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
 
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
@@ -4223,6 +4725,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<Volume>> localVarReturnType = new GenericType<List<Volume>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4256,6 +4763,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ResourceStats> localVarReturnType = new GenericType<ResourceStats>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4295,6 +4807,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<SatelliteConfig> localVarReturnType = new GenericType<SatelliteConfig>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4335,6 +4852,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4375,6 +4897,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4415,6 +4942,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4454,6 +4986,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4488,6 +5025,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4527,6 +5069,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<StoragePoolDefinition> localVarReturnType = new GenericType<StoragePoolDefinition>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4564,6 +5111,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<StoragePoolDefinition>> localVarReturnType = new GenericType<List<StoragePoolDefinition>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4597,6 +5149,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<StoragePoolStats> localVarReturnType = new GenericType<StoragePoolStats>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4630,6 +5187,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, Map<String, PropsInfo>>> localVarReturnType = new GenericType<Map<String, Map<String, PropsInfo>>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4663,6 +5225,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4696,6 +5263,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4729,6 +5301,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4774,6 +5351,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ExtFileCheckResult> localVarReturnType = new GenericType<ExtFileCheckResult>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4813,6 +5395,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4852,6 +5439,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ExternalFile> localVarReturnType = new GenericType<ExternalFile>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4892,6 +5484,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4927,6 +5524,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ExternalFile>> localVarReturnType = new GenericType<List<ExternalFile>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4966,6 +5568,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -4999,6 +5606,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5038,6 +5650,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5071,6 +5688,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<EbsRemote>> localVarReturnType = new GenericType<List<EbsRemote>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5105,6 +5727,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5145,6 +5772,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5178,6 +5810,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<RemoteList>> localVarReturnType = new GenericType<List<RemoteList>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5211,6 +5848,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<LinstorRemote>> localVarReturnType = new GenericType<List<LinstorRemote>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5245,6 +5887,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5285,6 +5932,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5325,6 +5977,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5388,6 +6045,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5431,6 +6093,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<BackupList> localVarReturnType = new GenericType<BackupList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5471,6 +6138,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<BackupInfo> localVarReturnType = new GenericType<BackupInfo>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5511,6 +6183,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5551,6 +6228,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5600,6 +6282,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5646,6 +6333,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5692,6 +6384,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5732,6 +6429,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5765,6 +6467,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<S3Remote>> localVarReturnType = new GenericType<List<S3Remote>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5799,6 +6506,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5839,6 +6551,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5872,6 +6589,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5911,6 +6633,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5950,6 +6677,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -5995,6 +6727,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6034,6 +6771,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6073,6 +6815,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6106,6 +6853,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6145,6 +6897,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6178,6 +6935,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ScheduleList> localVarReturnType = new GenericType<ScheduleList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6212,6 +6974,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6251,6 +7018,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6291,6 +7063,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6324,6 +7101,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6359,6 +7141,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ExosDefaults>> localVarReturnType = new GenericType<List<ExosDefaults>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6396,6 +7183,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ExosEnclosureHealth>> localVarReturnType = new GenericType<List<ExosEnclosureHealth>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6439,6 +7231,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<BackupQueues> localVarReturnType = new GenericType<BackupQueues>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6480,6 +7277,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ScheduledRscsList> localVarReturnType = new GenericType<ScheduledRscsList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6519,6 +7321,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ScheduleDetailsList> localVarReturnType = new GenericType<ScheduleDetailsList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6556,6 +7363,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<PhysicalStorage>> localVarReturnType = new GenericType<List<PhysicalStorage>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6601,6 +7413,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ResourceWithVolumes>> localVarReturnType = new GenericType<List<ResourceWithVolumes>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6646,6 +7463,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<SnapshotShippingStatus>> localVarReturnType = new GenericType<List<SnapshotShippingStatus>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6687,6 +7509,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<Snapshot>> localVarReturnType = new GenericType<List<Snapshot>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6732,6 +7559,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<StoragePool>> localVarReturnType = new GenericType<List<StoragePool>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6772,6 +7604,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6817,6 +7654,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6860,6 +7702,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<VolumeDefinition>> localVarReturnType = new GenericType<List<VolumeDefinition>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6906,6 +7753,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6952,6 +7804,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -6992,6 +7849,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -7037,6 +7899,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -7080,6 +7947,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<VolumeGroup>> localVarReturnType = new GenericType<List<VolumeGroup>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -7126,6 +7998,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
@@ -7178,6 +8055,11 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 }

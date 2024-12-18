@@ -15,9 +15,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-04-02T13:40:09.628252133Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-18T06:34:31.141535853Z[Etc/UTC]")
 public class DefaultApi {
   private ApiClient apiClient;
+  private Map<String, String> headers;
 
   public DefaultApi() {
     this(Configuration.getDefaultApiClient());
@@ -33,6 +34,10 @@ public class DefaultApi {
 
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  public void setHeadersOverrides(Map<String, String> headers) {
+    this.headers = headers;
   }
 
   /**
@@ -73,6 +78,11 @@ public class DefaultApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
 }
