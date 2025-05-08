@@ -51,7 +51,7 @@ import com.linbit.linstor.api.auth.HttpBasicAuth;
 import com.linbit.linstor.api.auth.ApiKeyAuth;
 import com.linbit.linstor.api.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-18T06:34:31.141535853Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-05-08T11:58:50.875992750Z[Etc/UTC]")
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected String basePath = "http://localhost:3370";

@@ -17,44 +17,54 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.linbit.linstor.api.model.PropertyWithDescription;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
 /**
- * EffectivePropertiesMapValue
+ * ReplicationState
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-05-08T11:58:50.875992750Z[Etc/UTC]")
 
-public class EffectivePropertiesMapValue extends PropertyWithDescription {
-  @JsonProperty("other")
-  private List<PropertyWithDescription> other = null;
+public class ReplicationState {
+  @JsonProperty("replication_state")
+  private String replicationState = null;
 
-  public EffectivePropertiesMapValue other(List<PropertyWithDescription> other) {
-    this.other = other;
-    return this;
-  }
+  @JsonProperty("done_percentage")
+  private Double donePercentage = null;
 
-  public EffectivePropertiesMapValue addOtherItem(PropertyWithDescription otherItem) {
-    if (this.other == null) {
-      this.other = new ArrayList<>();
-    }
-    this.other.add(otherItem);
+  public ReplicationState replicationState(String replicationState) {
+    this.replicationState = replicationState;
     return this;
   }
 
    /**
-   * Get other
-   * @return other
+   * Get replicationState
+   * @return replicationState
   **/
   @Schema(description = "")
-  public List<PropertyWithDescription> getOther() {
-    return other;
+  public String getReplicationState() {
+    return replicationState;
   }
 
-  public void setOther(List<PropertyWithDescription> other) {
-    this.other = other;
+  public void setReplicationState(String replicationState) {
+    this.replicationState = replicationState;
+  }
+
+  public ReplicationState donePercentage(Double donePercentage) {
+    this.donePercentage = donePercentage;
+    return this;
+  }
+
+   /**
+   * Get donePercentage
+   * @return donePercentage
+  **/
+  @Schema(description = "")
+  public Double getDonePercentage() {
+    return donePercentage;
+  }
+
+  public void setDonePercentage(Double donePercentage) {
+    this.donePercentage = donePercentage;
   }
 
 
@@ -66,23 +76,24 @@ public class EffectivePropertiesMapValue extends PropertyWithDescription {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EffectivePropertiesMapValue effectivePropertiesMapValue = (EffectivePropertiesMapValue) o;
-    return Objects.equals(this.other, effectivePropertiesMapValue.other) &&
-        super.equals(o);
+    ReplicationState replicationState = (ReplicationState) o;
+    return Objects.equals(this.replicationState, replicationState.replicationState) &&
+        Objects.equals(this.donePercentage, replicationState.donePercentage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(other, super.hashCode());
+    return Objects.hash(replicationState, donePercentage);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EffectivePropertiesMapValue {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    other: ").append(toIndentedString(other)).append("\n");
+    sb.append("class ReplicationState {\n");
+    
+    sb.append("    replicationState: ").append(toIndentedString(replicationState)).append("\n");
+    sb.append("    donePercentage: ").append(toIndentedString(donePercentage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

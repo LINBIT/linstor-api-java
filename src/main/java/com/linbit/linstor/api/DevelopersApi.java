@@ -54,6 +54,7 @@ import com.linbit.linstor.api.model.NodeCreateEbs;
 import com.linbit.linstor.api.model.NodeModify;
 import com.linbit.linstor.api.model.NodeStats;
 import com.linbit.linstor.api.model.PassPhraseCreate;
+import com.linbit.linstor.api.model.PassphraseStatus;
 import com.linbit.linstor.api.model.PhysicalStorage;
 import com.linbit.linstor.api.model.PhysicalStorageCreate;
 import com.linbit.linstor.api.model.PhysicalStorageNode;
@@ -115,7 +116,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-18T06:34:31.141535853Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-05-08T11:58:50.875992750Z[Etc/UTC]")
 public class DevelopersApi {
   private ApiClient apiClient;
   private Map<String, String> headers;
@@ -2388,6 +2389,44 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * Check if master passphrase is set and/or unlocked
+   * Check if master passphrase is set and/or unlocked
+   * @return List&lt;PassphraseStatus&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<PassphraseStatus> passphraseStatus() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/v1/encryption/passphrase";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<PassphraseStatus>> localVarReturnType = new GenericType<List<PassphraseStatus>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * Queries size information from all available resource groups
    * Unlike /v1/resource-groups/{resource_group}/query-size-info, this API returns the QSI result for all currently available resource groups 
    * @param body  (optional)
@@ -3036,13 +3075,14 @@ public class DevelopersApi {
    * lists all resource-definitions
    * Lists all resource definitions.  A single resource definition can be queried by adding its name to the resource string like:  /v1/resource-definitions/rsc1 
    * @param resourceDefinitions Filter only for the specified resource definitions, if not specified no filtering. (optional)
+   * @param withVolumeDefinitions Include volume definitions attached to the resource definition (optional, default to false)
    * @param props filter by given properties, full property path (optional)
    * @param offset number of records to skip for pagination (optional)
    * @param limit maximum number of records to return (optional)
    * @return List&lt;ResourceDefinition&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<ResourceDefinition> resourceDefinitionList(List<String> resourceDefinitions, List<String> props, Integer offset, Integer limit) throws ApiException {
+  public List<ResourceDefinition> resourceDefinitionList(List<String> resourceDefinitions, Boolean withVolumeDefinitions, List<String> props, Integer offset, Integer limit) throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/v1/resource-definitions";
@@ -3053,6 +3093,7 @@ public class DevelopersApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "resource_definitions", resourceDefinitions));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_volume_definitions", withVolumeDefinitions));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "props", props));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));

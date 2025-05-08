@@ -14,39 +14,16 @@ package com.linbit.linstor.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.linbit.linstor.api.model.AutoSelectFilter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.linbit.linstor.api.model.ReplicationState;
+import java.util.HashMap;
+import java.util.Map;
 /**
- * ResourceGroupAdjust
+ * ReplicationStates
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-05-08T11:58:50.875992750Z[Etc/UTC]")
 
-public class ResourceGroupAdjust {
-  @JsonProperty("select_filter")
-  private AutoSelectFilter selectFilter = null;
-
-  public ResourceGroupAdjust selectFilter(AutoSelectFilter selectFilter) {
-    this.selectFilter = selectFilter;
-    return this;
-  }
-
-   /**
-   * Get selectFilter
-   * @return selectFilter
-  **/
-  @Schema(description = "")
-  public AutoSelectFilter getSelectFilter() {
-    return selectFilter;
-  }
-
-  public void setSelectFilter(AutoSelectFilter selectFilter) {
-    this.selectFilter = selectFilter;
-  }
-
+public class ReplicationStates extends HashMap<String, ReplicationState> {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -56,22 +33,20 @@ public class ResourceGroupAdjust {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResourceGroupAdjust resourceGroupAdjust = (ResourceGroupAdjust) o;
-    return Objects.equals(this.selectFilter, resourceGroupAdjust.selectFilter);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(selectFilter);
+    return Objects.hash(super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResourceGroupAdjust {\n");
-    
-    sb.append("    selectFilter: ").append(toIndentedString(selectFilter)).append("\n");
+    sb.append("class ReplicationStates {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

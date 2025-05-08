@@ -850,13 +850,16 @@ public class DevelopersApiTest {
     @Test
     @Ignore
     public void resourceDefinitionListTest() throws ApiException {
-        List<String> resourceDefinitions = null;
+        List<String> rscDfnFilter = null;
         List<String> props = null;
         Integer offset = null;
         Integer limit = null;
-        List<ResourceDefinition> response = api.resourceDefinitionList(resourceDefinitions, props, offset, limit);
+        List<ResourceDefinition> response = api.resourceDefinitionList(rscDfnFilter, false, props, offset, limit);
+        Assert.assertNull(response.get(0).getVolumeDefinitions());
 
-        // TODO: test validations
+
+        List<ResourceDefinition> respWith = api.resourceDefinitionList(rscDfnFilter, true, props, offset, limit);
+        Assert.assertNotNull(respWith.get(0).getVolumeDefinitions());
     }
     /**
      * modify a resource-definition

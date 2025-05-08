@@ -17,44 +17,65 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.linbit.linstor.api.model.PropertyWithDescription;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
-import java.util.List;
 /**
- * EffectivePropertiesMapValue
+ * PassphraseStatus
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-05-08T11:58:50.875992750Z[Etc/UTC]")
 
-public class EffectivePropertiesMapValue extends PropertyWithDescription {
-  @JsonProperty("other")
-  private List<PropertyWithDescription> other = null;
+public class PassphraseStatus {
+  /**
+   * Gets or Sets status
+   */
+  public enum StatusEnum {
+    UNSET("unset"),
+    LOCKED("locked"),
+    UNLOCKED("unlocked");
 
-  public EffectivePropertiesMapValue other(List<PropertyWithDescription> other) {
-    this.other = other;
-    return this;
-  }
+    private String value;
 
-  public EffectivePropertiesMapValue addOtherItem(PropertyWithDescription otherItem) {
-    if (this.other == null) {
-      this.other = new ArrayList<>();
+    StatusEnum(String value) {
+      this.value = value;
     }
-    this.other.add(otherItem);
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    @JsonCreator
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+  }  @JsonProperty("status")
+  private StatusEnum status = null;
+
+  public PassphraseStatus status(StatusEnum status) {
+    this.status = status;
     return this;
   }
 
    /**
-   * Get other
-   * @return other
+   * Get status
+   * @return status
   **/
-  @Schema(description = "")
-  public List<PropertyWithDescription> getOther() {
-    return other;
+  @Schema(required = true, description = "")
+  public StatusEnum getStatus() {
+    return status;
   }
 
-  public void setOther(List<PropertyWithDescription> other) {
-    this.other = other;
+  public void setStatus(StatusEnum status) {
+    this.status = status;
   }
 
 
@@ -66,23 +87,22 @@ public class EffectivePropertiesMapValue extends PropertyWithDescription {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EffectivePropertiesMapValue effectivePropertiesMapValue = (EffectivePropertiesMapValue) o;
-    return Objects.equals(this.other, effectivePropertiesMapValue.other) &&
-        super.equals(o);
+    PassphraseStatus passphraseStatus = (PassphraseStatus) o;
+    return Objects.equals(this.status, passphraseStatus.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(other, super.hashCode());
+    return Objects.hash(status);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EffectivePropertiesMapValue {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    other: ").append(toIndentedString(other)).append("\n");
+    sb.append("class PassphraseStatus {\n");
+    
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
