@@ -21,8 +21,10 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
 
 tasks.register('execute', JavaExec) {
     mainClass = System.getProperty('mainClass')
@@ -31,12 +33,12 @@ tasks.register('execute', JavaExec) {
 
 tasks.register('sourcesJar', Jar) {
     from sourceSets.main.allJava
-    classifier = 'sources'
+    archiveClassifier = 'sources'
 }
 
 tasks.register('javadocJar', Jar) {
     from javadoc
-    classifier = 'javadoc'
+    archiveClassifier = 'javadoc'
 }
 
 publishing {
