@@ -7,10 +7,11 @@ buildscript {
 }
 
 plugins {
-    id 'maven-publish'
     id 'idea'
     id 'eclipse'
     id 'java-library'
+    id 'maven-publish'
+    id 'org.jreleaser' version '1.24.0'
     id 'signing'
 }
 
@@ -44,25 +45,12 @@ tasks.register('javadocJar', Jar) {
 publishing {
     repositories {
         maven {
-            name 'sonatype'
-
-            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-
-			def user = project.hasProperty('sonatypeUsername') ? sonatypeUsername : "anonymous"
-			def pass = project.hasProperty('sonatypePassword') ? sonatypePassword : ""
-
-            credentials {
-                username user
-                password pass
-            }
-
+            url = layout.buildDirectory.dir('staging-deploy')
         }
     }
 
     publications {
-        mavenJava(MavenPublication) {
+        maven(MavenPublication) {
             artifactId = 'java-linstor'
             from components.java
             artifact javadocJar
@@ -92,6 +80,24 @@ publishing {
                     connection = 'scm:git:https://github.com/LINBIT/linstor-api-java.git'
                     developerConnection = 'scm:git:https://github.com/LINBIT/linstor-api-java.git'
                     url = 'https://github.com/LINBIT/linstor-api-java'
+                }
+            }
+        }
+    }
+}
+
+jreleaser {
+    signing {
+        active = 'ALWAYS'
+        armored = true
+    }
+    deploy {
+        maven {
+            mavenCentral {
+                sonatype {
+                    active = 'ALWAYS'
+                    url = 'https://central.sonatype.com/api/v1/publisher'
+                    stagingRepository('target/staging-deploy')
                 }
             }
         }
@@ -130,14 +136,4 @@ dependencies {
     implementation "javax.activation:activation:1.1.1"
     implementation "org.glassfish.jersey.inject:jersey-hk2:$jersey_version"
     testImplementation "junit:junit:$junit_version"
-}
-
-signing {
-    required {
-        // signing is required if this is a release version and the artifacts are to be published
-        !version.endsWith('SNAPSHOT') && tasks.withType(PublishToMavenRepository).find {
-            gradle.taskGraph.hasTask it
-        }
-    }
-    sign publishing.publications
 }
