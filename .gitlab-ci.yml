@@ -1,4 +1,4 @@
-image: openjdk:8-jdk
+image: openjdk:11-ea-9
 
 variables:
   LINSTOR_CONTROLLER_HOST: 'linstor-controller'
