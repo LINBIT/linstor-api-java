@@ -49,6 +49,7 @@ import com.linbit.linstor.api.model.ResourceWithVolumes;
 import com.linbit.linstor.api.model.SatelliteConfig;
 import com.linbit.linstor.api.model.Snapshot;
 import com.linbit.linstor.api.model.SnapshotRestore;
+import com.linbit.linstor.api.model.SnapshotRollback;
 import com.linbit.linstor.api.model.SnapshotShipping;
 import com.linbit.linstor.api.model.SnapshotShippingStatus;
 import com.linbit.linstor.api.model.StoragePool;
@@ -1192,7 +1193,7 @@ public class DevelopersApiTest {
     public void resourceSnapshotRollbackTest() throws ApiException {
         String resource = null;
         String snapshot = null;
-        ApiCallRcList response = api.resourceSnapshotRollback(resource, snapshot);
+        ApiCallRcList response = api.resourceSnapshotRollback(resource, snapshot, new SnapshotRollback());
 
         // TODO: test validations
     }
@@ -1337,23 +1338,6 @@ public class DevelopersApiTest {
     public void satelliteConfigTest() throws ApiException {
         String node = null;
         SatelliteConfig response = api.satelliteConfig(node);
-
-        // TODO: test validations
-    }
-    /**
-     * ship a snapshot
-     *
-     * Transfers the resource from one node to another based on snapshot-shipping
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    @Ignore
-    public void snapshotShippingTest() throws ApiException {
-        String resource = null;
-        SnapshotShipping body = null;
-        ApiCallRcList response = api.snapshotShipping(resource, body);
 
         // TODO: test validations
     }
@@ -1514,27 +1498,6 @@ public class DevelopersApiTest {
         final ResourceWithVolumes rsc1 = response.get(0);
         System.out.println(rsc1.getLayerObject().getDrbd().getDrbdVolumes()
                 .get(0).getDrbdVolumeDefinition().getMinorNumber());
-        // TODO: test validations
-    }
-    /**
-     * view current snapshot shippings
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    @Ignore
-    public void viewSnapshotShippingsTest() throws ApiException {
-        List<String> nodes = null;
-        List<String> resources = null;
-        List<String> snapshots = null;
-        List<String> status = null;
-        Integer offset = null;
-        Integer limit = null;
-        List<SnapshotShippingStatus> response = api.viewSnapshotShippings(nodes, resources, snapshots, status, offset, limit);
-
         // TODO: test validations
     }
     /**

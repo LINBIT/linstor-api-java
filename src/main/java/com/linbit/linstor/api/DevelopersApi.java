@@ -9,6 +9,7 @@ import javax.ws.rs.core.GenericType;
 
 import com.linbit.linstor.api.model.ApiCallRc;
 import com.linbit.linstor.api.model.ApiCallRcList;
+import com.linbit.linstor.api.model.AuthTokenListResponse;
 import com.linbit.linstor.api.model.AutoPlaceRequest;
 import com.linbit.linstor.api.model.AutoSelectFilter;
 import com.linbit.linstor.api.model.BackupAbort;
@@ -23,6 +24,7 @@ import com.linbit.linstor.api.model.BackupShip;
 import com.linbit.linstor.api.model.ControllerConfig;
 import com.linbit.linstor.api.model.ControllerPropsModify;
 import com.linbit.linstor.api.model.ControllerVersion;
+import com.linbit.linstor.api.model.CreateAuthToken;
 import com.linbit.linstor.api.model.CreateMultiSnapshotRequest;
 import com.linbit.linstor.api.model.DatabaseBackupRequest;
 import com.linbit.linstor.api.model.DrbdProxyEnable;
@@ -31,26 +33,24 @@ import com.linbit.linstor.api.model.EbsRemote;
 import com.linbit.linstor.api.model.ErrorReport;
 import com.linbit.linstor.api.model.ErrorReportDelete;
 import com.linbit.linstor.api.model.ErrorReportStats;
-import com.linbit.linstor.api.model.ExosConnectionMap;
-import com.linbit.linstor.api.model.ExosDefaults;
-import com.linbit.linstor.api.model.ExosDefaultsModify;
-import com.linbit.linstor.api.model.ExosEnclosure;
-import com.linbit.linstor.api.model.ExosEnclosureEvent;
-import com.linbit.linstor.api.model.ExosEnclosureHealth;
 import com.linbit.linstor.api.model.ExtFileCheckResult;
+import com.linbit.linstor.api.model.ExtFileStatusResult;
 import com.linbit.linstor.api.model.ExternalFile;
 import java.io.File;
+import com.linbit.linstor.api.model.InitAuthTokenRequest;
 import com.linbit.linstor.api.model.InlineResponse200;
 import com.linbit.linstor.api.model.InlineResponse2001;
 import com.linbit.linstor.api.model.KeyValueStore;
 import com.linbit.linstor.api.model.KeyValueStoreModify;
 import com.linbit.linstor.api.model.LinstorRemote;
 import com.linbit.linstor.api.model.MaxVolumeSizes;
+import com.linbit.linstor.api.model.ModifyAuthToken;
 import com.linbit.linstor.api.model.NetInterface;
 import com.linbit.linstor.api.model.Node;
 import com.linbit.linstor.api.model.NodeConnection;
 import com.linbit.linstor.api.model.NodeConnectionModify;
 import com.linbit.linstor.api.model.NodeCreateEbs;
+import com.linbit.linstor.api.model.NodeEvacuate;
 import com.linbit.linstor.api.model.NodeModify;
 import com.linbit.linstor.api.model.NodeStats;
 import com.linbit.linstor.api.model.PassPhraseCreate;
@@ -64,6 +64,9 @@ import com.linbit.linstor.api.model.QueryAllSizeInfoRequest;
 import com.linbit.linstor.api.model.QueryAllSizeInfoResponse;
 import com.linbit.linstor.api.model.QuerySizeInfoRequest;
 import com.linbit.linstor.api.model.QuerySizeInfoResponse;
+import com.linbit.linstor.api.model.ReactorExecRequest;
+import com.linbit.linstor.api.model.ReactorExecResponse;
+import com.linbit.linstor.api.model.ReactorPluginRequest;
 import com.linbit.linstor.api.model.RemoteList;
 import com.linbit.linstor.api.model.Resource;
 import com.linbit.linstor.api.model.ResourceConnection;
@@ -94,14 +97,15 @@ import com.linbit.linstor.api.model.ScheduleList;
 import com.linbit.linstor.api.model.ScheduleModify;
 import com.linbit.linstor.api.model.ScheduledRscsList;
 import com.linbit.linstor.api.model.Snapshot;
+import com.linbit.linstor.api.model.SnapshotModify;
 import com.linbit.linstor.api.model.SnapshotRestore;
-import com.linbit.linstor.api.model.SnapshotShipping;
-import com.linbit.linstor.api.model.SnapshotShippingStatus;
+import com.linbit.linstor.api.model.SnapshotRollback;
 import com.linbit.linstor.api.model.StoragePool;
 import com.linbit.linstor.api.model.StoragePoolDefinition;
 import com.linbit.linstor.api.model.StoragePoolDefinitionModify;
 import com.linbit.linstor.api.model.StoragePoolStats;
 import com.linbit.linstor.api.model.ToggleDiskDiskful;
+import com.linbit.linstor.api.model.ToggleDiskRequest;
 import com.linbit.linstor.api.model.Volume;
 import com.linbit.linstor.api.model.VolumeDefinition;
 import com.linbit.linstor.api.model.VolumeDefinitionCreate;
@@ -116,7 +120,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-05-08T11:58:50.875992750Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-29T10:05:03.218384239Z[Etc/UTC]")
 public class DevelopersApi {
   private ApiClient apiClient;
   private Map<String, String> headers;
@@ -192,12 +196,217 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * create a new API token
+   * create a new API token and enable token auth
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList controllerAuthTokenCreate(CreateAuthToken body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/controller/auth/token";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * initialize the token authentication
+   * enables token auth and creates a first token and creates tokens on each satellite
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList controllerAuthTokenInitialize(InitAuthTokenRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/controller/auth/initialize-token-auth";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * list all current API auth tokens
+   * give a list of all current API auth tokens with information
+   * @return AuthTokenListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AuthTokenListResponse controllerAuthTokenList() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/v1/controller/auth/token";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<AuthTokenListResponse> localVarReturnType = new GenericType<AuthTokenListResponse>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * disables/enables an api token
+   * 
+   * @param authtokenid Auth token ID (required)
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList controllerAuthTokenModify(Integer authtokenid, ModifyAuthToken body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'authtokenid' is set
+    if (authtokenid == null) {
+      throw new ApiException(400, "Missing the required parameter 'authtokenid' when calling controllerAuthTokenModify");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/controller/auth/token/{authtokenid}"
+      .replaceAll("\\{" + "authtokenid" + "\\}", apiClient.escapeString(authtokenid.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * revoke an API auth token
+   * revoke an auth token
+   * @param authtokenid Auth token ID (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void controllerAuthTokenRevoke(Integer authtokenid) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'authtokenid' is set
+    if (authtokenid == null) {
+      throw new ApiException(400, "Missing the required parameter 'authtokenid' when calling controllerAuthTokenRevoke");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/controller/auth/token/{authtokenid}"
+      .replaceAll("\\{" + "authtokenid" + "\\}", apiClient.escapeString(authtokenid.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
+  /**
    * create a database backup
    * create a h2 database backup. Currently only H2(embedded) db is working.
    * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiCallRcList controllerBackupDB(DatabaseBackupRequest body) throws ApiException {
     Object localVarPostBody = body;
     // create path and map variables
@@ -267,6 +476,45 @@ public class DevelopersApi {
     }
 
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * export the controller&#x27;s database
+   * unlike controllerBackupDB this API works with all supported database types and dialects.
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList controllerExportDB(DatabaseBackupRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/controller/database/export";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * Deletes a controller property
@@ -1041,269 +1289,6 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
-   * creates a new enclosure
-   * Creates a new enclosure unless it already exists
-   * @param body  (optional)
-   * @return ApiCallRcList
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ApiCallRcList exosCreate(ExosEnclosure body) throws ApiException {
-    Object localVarPostBody = body;
-    // create path and map variables
-    String localVarPath = "/v1/vendor/seagate/exos/enclosures";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
-
-    if (headers != null) {
-      localVarHeaderParams.putAll(headers);
-    }
-
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-  /**
-   * modifies an existing enclosure
-   * Deletes an existing enclosure
-   * @param enclosure Name of the enclosure (required)
-   * @return ApiCallRcList
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ApiCallRcList exosDelete(String enclosure) throws ApiException {
-    Object localVarPostBody = null;
-    // verify the required parameter 'enclosure' is set
-    if (enclosure == null) {
-      throw new ApiException(400, "Missing the required parameter 'enclosure' when calling exosDelete");
-    }
-    // create path and map variables
-    String localVarPath = "/v1/vendor/seagate/exos/enclosures/{enclosure}"
-      .replaceAll("\\{" + "enclosure" + "\\}", apiClient.escapeString(enclosure.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
-
-    if (headers != null) {
-      localVarHeaderParams.putAll(headers);
-    }
-
-    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-  /**
-   * Returns the last EXOS events
-   * Lists the most current X events
-   * @param enclosure Name of the enclosure (required)
-   * @param count Number of events to fetch (optional)
-   * @return List&lt;ExosEnclosureEvent&gt;
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public List<ExosEnclosureEvent> exosDescribe(String enclosure, Integer count) throws ApiException {
-    Object localVarPostBody = null;
-    // verify the required parameter 'enclosure' is set
-    if (enclosure == null) {
-      throw new ApiException(400, "Missing the required parameter 'enclosure' when calling exosDescribe");
-    }
-    // create path and map variables
-    String localVarPath = "/v1/vendor/seagate/exos/{enclosure}/events"
-      .replaceAll("\\{" + "enclosure" + "\\}", apiClient.escapeString(enclosure.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
-
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<List<ExosEnclosureEvent>> localVarReturnType = new GenericType<List<ExosEnclosureEvent>>() {};
-
-    if (headers != null) {
-      localVarHeaderParams.putAll(headers);
-    }
-
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-  /**
-   * Lists all EXOS Ports connected to each Linstor Node
-   * Lists the connection-mesh of EXOS Ports to Linstor Nodes
-   * @return List&lt;ExosConnectionMap&gt;
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public List<ExosConnectionMap> exosMap() throws ApiException {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/v1/vendor/seagate/exos/map";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<List<ExosConnectionMap>> localVarReturnType = new GenericType<List<ExosConnectionMap>>() {};
-
-    if (headers != null) {
-      localVarHeaderParams.putAll(headers);
-    }
-
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-  /**
-   * modifies an existing enclosure
-   * Modifies an existing enclosure
-   * @param enclosure Name of the enclosure (required)
-   * @param body  (optional)
-   * @return ApiCallRcList
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ApiCallRcList exosModify(String enclosure, ExosEnclosure body) throws ApiException {
-    Object localVarPostBody = body;
-    // verify the required parameter 'enclosure' is set
-    if (enclosure == null) {
-      throw new ApiException(400, "Missing the required parameter 'enclosure' when calling exosModify");
-    }
-    // create path and map variables
-    String localVarPath = "/v1/vendor/seagate/exos/enclosures/{enclosure}"
-      .replaceAll("\\{" + "enclosure" + "\\}", apiClient.escapeString(enclosure.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
-
-    if (headers != null) {
-      localVarHeaderParams.putAll(headers);
-    }
-
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-  /**
-   * modify default settings of EXOS configurations
-   * Sets or modifies default username / password for EXOS enclosures 
-   * @param body  (optional)
-   * @return ApiCallRcList
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public ApiCallRcList exosModifyDefault(ExosDefaultsModify body) throws ApiException {
-    Object localVarPostBody = body;
-    // create path and map variables
-    String localVarPath = "/v1/vendor/seagate/exos/defaults";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
-
-    if (headers != null) {
-      localVarHeaderParams.putAll(headers);
-    }
-
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-  /**
    * show physical storage on a single node
    * Gives a complete list of physical storage that can be turned into a LINSTOR storage-pool. 
    * @param node node to use (required)
@@ -1931,11 +1916,12 @@ public class DevelopersApi {
    * evacuates the node
    * Evacuates DRBD resources from the given node to other available nodes and deletes the evacuated resources once the sync is complete. Additionally sets the Node into EVACUATE state (no new resources allowed) 
    * @param node node to use (required)
+   * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList nodeEvacuate(String node) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiCallRcList nodeEvacuate(String node, NodeEvacuate body) throws ApiException {
+    Object localVarPostBody = body;
     // verify the required parameter 'node' is set
     if (node == null) {
       throw new ApiException(400, "Missing the required parameter 'node' when calling nodeEvacuate");
@@ -1957,7 +1943,7 @@ public class DevelopersApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -1970,6 +1956,201 @@ public class DevelopersApi {
     }
 
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * disable drbd-reactor plugin on nodes
+   * Executes &#x27;drbd-reactorctl disable &lt;config&gt;&#x27; on specified nodes. If &#x27;now&#x27; is true, also stops the drbd-services target immediately (equivalent to &#x27;drbd-reactorctl disable --now &lt;config&gt;&#x27;). 
+   * @param body  (optional)
+   * @return List&lt;ReactorExecResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<ReactorExecResponse> nodeExecDrbdReactorDisable(ReactorPluginRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/nodes/exec/drbd-reactorctl/disable";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<ReactorExecResponse>> localVarReturnType = new GenericType<List<ReactorExecResponse>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * enable drbd-reactor plugin on nodes
+   * Executes &#x27;drbd-reactorctl enable &lt;config&gt;&#x27; on specified nodes. 
+   * @param body  (optional)
+   * @return List&lt;ReactorExecResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<ReactorExecResponse> nodeExecDrbdReactorEnable(ReactorPluginRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/nodes/exec/drbd-reactorctl/enable";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<ReactorExecResponse>> localVarReturnType = new GenericType<List<ReactorExecResponse>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * evict drbd-reactor resources on nodes
+   * Executes &#x27;drbd-reactorctl evict &lt;resource&gt;&#x27; on specified nodes. 
+   * @param body  (optional)
+   * @return List&lt;ReactorExecResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<ReactorExecResponse> nodeExecDrbdReactorEvict(ReactorExecRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/nodes/exec/drbd-reactorctl/evict";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<ReactorExecResponse>> localVarReturnType = new GenericType<List<ReactorExecResponse>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * restart drbd-reactor plugin on nodes
+   * Executes &#x27;drbd-reactorctl restart &lt;config&gt;&#x27; on specified nodes. 
+   * @param body  (optional)
+   * @return List&lt;ReactorExecResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<ReactorExecResponse> nodeExecDrbdReactorRestart(ReactorPluginRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/nodes/exec/drbd-reactorctl/restart";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<ReactorExecResponse>> localVarReturnType = new GenericType<List<ReactorExecResponse>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * get drbd-reactor status from nodes
+   * Executes &#x27;drbd-reactorctl status --json&#x27; on specified nodes and returns the output. 
+   * @param body  (optional)
+   * @return List&lt;ReactorExecResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<ReactorExecResponse> nodeExecDrbdReactorStatus(ReactorExecRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    // create path and map variables
+    String localVarPath = "/v1/nodes/exec/drbd-reactorctl/status";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<ReactorExecResponse>> localVarReturnType = new GenericType<List<ReactorExecResponse>>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * Lists nodes registered to the controller
@@ -3946,14 +4127,16 @@ public class DevelopersApi {
   }
   /**
    * migrate a resource to another node
-   * migrate a resource to another node without reducing the redundancy count 
+   * Deprecated. Use /v1/resource-definitions/{resource}/resources/{node}/toggle-disk instead
    * @param resource resource to use (required)
    * @param node node to use (required)
    * @param fromnode node that should be deleted after the successful migrate (required)
    * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiCallRcList resourceMigrateDisk(String resource, String node, String fromnode, ToggleDiskDiskful body) throws ApiException {
     Object localVarPostBody = body;
     // verify the required parameter 'resource' is set
@@ -4003,14 +4186,16 @@ public class DevelopersApi {
   }
   /**
    * migrate a resource to another node
-   * migrate a resource to another node without reducing the redundency count 
+   * Deprecated. Use /v1/resource-definitions/{resource}/resources/{node}/toggle-disk instead
    * @param resource resource to use (required)
    * @param node node to use (required)
    * @param fromnode node that should be deleted after the successful migrate (required)
    * @param storagepool Storage pool to use (required)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiCallRcList resourceMigrateDiskStoragepool(String resource, String node, String fromnode, String storagepool) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'resource' is set
@@ -4317,11 +4502,12 @@ public class DevelopersApi {
    * Rollback a resource to the snapshot state
    * @param resource resource to use (required)
    * @param snapshot Snapshot name to use (required)
+   * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList resourceSnapshotRollback(String resource, String snapshot) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiCallRcList resourceSnapshotRollback(String resource, String snapshot, SnapshotRollback body) throws ApiException {
+    Object localVarPostBody = body;
     // verify the required parameter 'resource' is set
     if (resource == null) {
       throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceSnapshotRollback");
@@ -4348,7 +4534,7 @@ public class DevelopersApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -4458,14 +4644,67 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
-   * toggle a resource to a diskful resource
-   * toggle a resource to a diskful resource using the default storage pool 
+   * toggle a resource into diskless or diskful
+   * toggle a diskful resource to a diskless/client resource or vice versa
    * @param resource resource to use (required)
    * @param node node to use (required)
    * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
+  public ApiCallRcList resourceToggleDisk(String resource, String node, ToggleDiskRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceToggleDisk");
+    }
+    // verify the required parameter 'node' is set
+    if (node == null) {
+      throw new ApiException(400, "Missing the required parameter 'node' when calling resourceToggleDisk");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/resources/{node}/toggle-disk"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "node" + "\\}", apiClient.escapeString(node.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * toggle a resource to a diskful resource
+   * Deprecated. Use /v1/resource-definitions/{resource}/resources/{node}/toggle-disk instead
+   * @param resource resource to use (required)
+   * @param node node to use (required)
+   * @param body  (optional)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   * @deprecated
+   */
+  @Deprecated
   public ApiCallRcList resourceToggleDiskful(String resource, String node, ToggleDiskDiskful body) throws ApiException {
     Object localVarPostBody = body;
     // verify the required parameter 'resource' is set
@@ -4510,14 +4749,16 @@ public class DevelopersApi {
   }
   /**
    * toggle a resource to a diskful resource
-   * toggle a resource to a diskful resource
+   * Deprecated. Use /v1/resource-definitions/{resource}/resources/{node}/toggle-disk instead
    * @param resource resource to use (required)
    * @param node node to use (required)
    * @param storagepool Storage pool to use (required)
    * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiCallRcList resourceToggleDiskfulStoragepool(String resource, String node, String storagepool, ToggleDiskDiskful body) throws ApiException {
     Object localVarPostBody = body;
     // verify the required parameter 'resource' is set
@@ -4567,12 +4808,14 @@ public class DevelopersApi {
   }
   /**
    * toggle a resource to diskless
-   * toggle a resource to a diskless resource
+   * Deprecated. Use /v1/resource-definitions/{resource}/resources/{node}/toggle-disk instead
    * @param resource resource to use (required)
    * @param node node to use (required)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiCallRcList resourceToggleDiskless(String resource, String node) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'resource' is set
@@ -4617,13 +4860,15 @@ public class DevelopersApi {
   }
   /**
    * toggle a resource to diskless resource
-   * toggle a resource to a diskless. 
+   * Deprecated. Use /v1/resource-definitions/{resource}/resources/{node}/toggle-disk instead
    * @param resource resource to use (required)
    * @param node node to use (required)
    * @param disklesspool diskless pool to use. (required)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ApiCallRcList resourceToggleDisklessDisklesspool(String resource, String node, String disklesspool) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'resource' is set
@@ -4856,22 +5101,28 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
-   * ship a snapshot
-   * Transfers the resource from one node to another based on snapshot-shipping
+   * modify a snapshot
+   * Modify snapshot definition properties
    * @param resource resource to use (required)
+   * @param snapshot Snapshot name to use (required)
    * @param body  (optional)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList snapshotShipping(String resource, SnapshotShipping body) throws ApiException {
+  public ApiCallRcList snapshotModify(String resource, String snapshot, SnapshotModify body) throws ApiException {
     Object localVarPostBody = body;
     // verify the required parameter 'resource' is set
     if (resource == null) {
-      throw new ApiException(400, "Missing the required parameter 'resource' when calling snapshotShipping");
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling snapshotModify");
+    }
+    // verify the required parameter 'snapshot' is set
+    if (snapshot == null) {
+      throw new ApiException(400, "Missing the required parameter 'snapshot' when calling snapshotModify");
     }
     // create path and map variables
-    String localVarPath = "/v1/resource-definitions/{resource}/snapshot-shipping"
-      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
+    String localVarPath = "/v1/resource-definitions/{resource}/snapshots/{snapshot}"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "snapshot" + "\\}", apiClient.escapeString(snapshot.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -4898,7 +5149,7 @@ public class DevelopersApi {
       localVarHeaderParams.putAll(headers);
     }
 
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * modify satellite config
@@ -5531,6 +5782,56 @@ public class DevelopersApi {
     }
 
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * queries on-demand status of an external file on a satellite
+   * Queries the satellite for the current on-disk status of the external file. Returns the actual path where the file exists (which may differ from the canonical path if an alternative suffix is in use) and whether the content matches LINSTOR&#x27;s expected checksum. 
+   * @param extFileName Name of an external file. Must be an absolute path in URL-encoding (required)
+   * @param node node to use (required)
+   * @return ExtFileStatusResult
+   * @throws ApiException if fails to make API call
+   */
+  public ExtFileStatusResult v1FilesExtFileNameStatusNodeGet(String extFileName, String node) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'extFileName' is set
+    if (extFileName == null) {
+      throw new ApiException(400, "Missing the required parameter 'extFileName' when calling v1FilesExtFileNameStatusNodeGet");
+    }
+    // verify the required parameter 'node' is set
+    if (node == null) {
+      throw new ApiException(400, "Missing the required parameter 'node' when calling v1FilesExtFileNameStatusNodeGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/files/{extFileName}/status/{node}"
+      .replaceAll("\\{" + "extFileName" + "\\}", apiClient.escapeString(extFileName.toString()))
+      .replaceAll("\\{" + "node" + "\\}", apiClient.escapeString(node.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<ExtFileStatusResult> localVarReturnType = new GenericType<ExtFileStatusResult>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * list registered external files
@@ -7150,88 +7451,6 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
-   * Lists default setting for all EXOS enclosures
-   * Lists default setting for all EXOS enclosures
-   * @return List&lt;ExosDefaults&gt;
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public List<ExosDefaults> v1VendorSeagateExosDefaultsGet() throws ApiException {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/v1/vendor/seagate/exos/defaults";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<List<ExosDefaults>> localVarReturnType = new GenericType<List<ExosDefaults>>() {};
-
-    if (headers != null) {
-      localVarHeaderParams.putAll(headers);
-    }
-
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-  /**
-   * List of EXOS enclosures
-   * Lists EXOS enclosures including controller IP and health status
-   * @param nocache Force recaching before response (optional)
-   * @return List&lt;ExosEnclosureHealth&gt;
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public List<ExosEnclosureHealth> v1VendorSeagateExosEnclosuresGet(Boolean nocache) throws ApiException {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/v1/vendor/seagate/exos/enclosures";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "nocache", nocache));
-
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<List<ExosEnclosureHealth>> localVarReturnType = new GenericType<List<ExosEnclosureHealth>>() {};
-
-    if (headers != null) {
-      localVarHeaderParams.putAll(headers);
-    }
-
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-  /**
    * list queued snapshots
    * list which snaps are queued on which node
    * @param nodes filter by nodes (optional)
@@ -7454,56 +7673,6 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ResourceWithVolumes>> localVarReturnType = new GenericType<List<ResourceWithVolumes>>() {};
-
-    if (headers != null) {
-      localVarHeaderParams.putAll(headers);
-    }
-
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-  }
-  /**
-   * view current snapshot shippings
-   * 
-   * @param nodes Filter only for the specified nodes, if not specified, no filtering. (optional)
-   * @param resources Filter only for the specified resources, if not specified, no filtering. (optional)
-   * @param snapshots Filter only for the specified snapshots, if not specified, no filtering. (optional)
-   * @param status Filter only for the specified status, if not specified, no filtering. (optional)
-   * @param offset number of records to skip for pagination (optional)
-   * @param limit maximum number of records to return (optional)
-   * @return List&lt;SnapshotShippingStatus&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<SnapshotShippingStatus> viewSnapshotShippings(List<String> nodes, List<String> resources, List<String> snapshots, List<String> status, Integer offset, Integer limit) throws ApiException {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/v1/view/snapshot-shippings";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "nodes", nodes));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "resources", resources));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "snapshots", snapshots));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "status", status));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<List<SnapshotShippingStatus>> localVarReturnType = new GenericType<List<SnapshotShippingStatus>>() {};
 
     if (headers != null) {
       localVarHeaderParams.putAll(headers);
