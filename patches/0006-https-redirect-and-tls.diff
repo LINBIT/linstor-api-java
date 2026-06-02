@@ -1,0 +1,236 @@
+diff --git a/src/main/java/com/linbit/linstor/api/ApiClient.java b/src/main/java/com/linbit/linstor/api/ApiClient.java
+index a0cbb13..c7767ab 100644
+--- a/src/main/java/com/linbit/linstor/api/ApiClient.java
++++ b/src/main/java/com/linbit/linstor/api/ApiClient.java
+@@ -38,6 +38,22 @@ import java.util.Date;
+ import java.util.TimeZone;
+ 
+ import java.net.URLEncoder;
++import java.net.HttpURLConnection;
++import java.net.URI;
++import java.net.URL;
++import java.nio.file.Path;
++import java.security.KeyStore;
++import java.security.cert.Certificate;
++import java.security.cert.CertificateFactory;
++import java.security.cert.X509Certificate;
++import javax.net.ssl.HostnameVerifier;
++import javax.net.ssl.SSLContext;
++import javax.net.ssl.SSLSession;
++import javax.net.ssl.TrustManager;
++import javax.net.ssl.TrustManagerFactory;
++import javax.net.ssl.X509TrustManager;
++import com.fasterxml.jackson.databind.JsonNode;
++import com.fasterxml.jackson.databind.ObjectMapper;
+ 
+ import java.io.File;
+ import java.io.UnsupportedEncodingException;
+@@ -58,6 +74,9 @@ public class ApiClient {
+   protected boolean debugging = false;
+   protected int connectionTimeout = 0;
+   private int readTimeout = 0;
++  protected SSLContext sslContext;
++  protected HostnameVerifier hostnameVerifier;
++  public static final String AUTH_JSON_PATH = "/var/lib/linstor.d/auth.json";
+ 
+   protected Client httpClient;
+   protected JSON json;
+@@ -112,6 +131,182 @@ public class ApiClient {
+     return this;
+   }
+ 
++  /**
++   * Resolve the base path scheme and, for a plain endpoint, probe the controller for an
++   * HTTP-&gt;HTTPS redirect and switch to the discovered HTTPS endpoint. A LINSTOR controller with
++   * HTTPS enabled answers its plain HTTP port with a 302 to its HTTPS listener; the JDK HTTP client
++   * does not follow such cross-scheme redirects, so we detect it here and switch up-front.
++   *
++   * <p>Scheme handling (the base path is normalized to a real {@code http}/{@code https} URL the
++   * client can use):</p>
++   * <ul>
++   *   <li>{@code https} / {@code linstor+ssl} &ndash; use HTTPS directly (default port 3371);</li>
++   *   <li>{@code http} / {@code linstor} &ndash; probe and switch to HTTPS on a 302, else stay plain
++   *       HTTP (default port 3370).</li>
++   * </ul>
++   *
++   * @return true if the (effective) base path is HTTPS
++   */
++  public boolean discoverHttps() {
++    URI uri;
++    try {
++      uri = URI.create(basePath);
++    } catch (RuntimeException exc) {
++      return false;
++    }
++    String scheme = uri.getScheme() == null ? "" : uri.getScheme().toLowerCase();
++    String host = uri.getHost();
++    if (host == null) {
++      return false;
++    }
++
++    // "https" / "linstor+ssl": connect straight to the HTTPS port, no probe needed
++    if ("https".equals(scheme) || "linstor+ssl".equals(scheme)) {
++      int port = uri.getPort() != -1 ? uri.getPort() : 3371;
++      setBasePath(String.format("https://%s:%d", host, port));
++      return true;
++    }
++
++    // only "http" / "linstor" are probed for an HTTP->HTTPS redirect
++    if (!"http".equals(scheme) && !"linstor".equals(scheme)) {
++      return false;
++    }
++    int httpPort = uri.getPort() != -1 ? uri.getPort() : 3370;
++    // normalize the "linstor://" alias to a real http URL so the client can use it
++    if ("linstor".equals(scheme)) {
++      setBasePath(String.format("http://%s:%d", host, httpPort));
++    }
++    HttpURLConnection conn = null;
++    try {
++      URL url = new URL("http", host, httpPort, "/v1/controller/version");
++      conn = (HttpURLConnection) url.openConnection();
++      conn.setRequestMethod("GET");
++      conn.setInstanceFollowRedirects(false);
++      conn.setConnectTimeout(3000);
++      conn.setReadTimeout(3000);
++      int status = conn.getResponseCode();
++      if (status >= 300 && status < 400) {
++        String location = conn.getHeaderField("Location");
++        if (location != null && !location.isEmpty()) {
++          URI redirect = URI.create(location);
++          if ("https".equalsIgnoreCase(redirect.getScheme())) {
++            int port = redirect.getPort() != -1 ? redirect.getPort() : 3371;
++            setBasePath(String.format("https://%s:%d", host, port));
++            return true;
++          }
++        }
++      }
++    } catch (IOException exc) {
++      // not reachable over plain HTTP or not redirecting: keep the current base path
++    } finally {
++      if (conn != null) {
++        conn.disconnect();
++      }
++    }
++    return false;
++  }
++
++  /**
++   * Trust all HTTPS certificates and skip hostname verification, for controllers serving a
++   * self-signed certificate. Rebuilds the HTTP client (so call before setting timeouts).
++   *
++   * @return API client
++   */
++  public ApiClient setInsecureSsl() {
++    try {
++      SSLContext ctx = SSLContext.getInstance("TLS");
++      ctx.init(null, new TrustManager[] {new TrustAllManager()}, null);
++      this.sslContext = ctx;
++      this.hostnameVerifier = new TrustAllHostnameVerifier();
++    } catch (Exception exc) {
++      throw new RuntimeException("Failed to set up insecure TLS", exc);
++    }
++    this.httpClient = buildHttpClient(debugging);
++    return this;
++  }
++
++  /**
++   * Verify the controller's HTTPS certificate against the given CA certificate (PEM or DER).
++   * Rebuilds the HTTP client (so call before setting timeouts).
++   *
++   * @param caCertificate path to a CA certificate
++   * @return API client
++   */
++  public ApiClient setCaCertificate(Path caCertificate) {
++    try {
++      CertificateFactory cf = CertificateFactory.getInstance("X.509");
++      KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
++      trustStore.load(null, null);
++      try (InputStream in = Files.newInputStream(caCertificate)) {
++        int idx = 0;
++        for (Certificate cert : cf.generateCertificates(in)) {
++          trustStore.setCertificateEntry("ca-" + idx, cert);
++          idx++;
++        }
++      }
++      TrustManagerFactory tmf =
++          TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
++      tmf.init(trustStore);
++      SSLContext ctx = SSLContext.getInstance("TLS");
++      ctx.init(null, tmf.getTrustManagers(), null);
++      this.sslContext = ctx;
++      this.hostnameVerifier = null;
++    } catch (Exception exc) {
++      throw new RuntimeException("Failed to load CA certificate " + caCertificate, exc);
++    }
++    this.httpClient = buildHttpClient(debugging);
++    return this;
++  }
++
++  /**
++   * Set the bearer access token, falling back to the token stored in {@value #AUTH_JSON_PATH} when
++   * no explicit token is given. An explicit (non-empty) token always takes precedence.
++   *
++   * @param explicitToken token to use, or null/empty to fall back to the auth.json file
++   * @return API client
++   */
++  public ApiClient setAccessTokenWithFallback(String explicitToken) {
++    String token = (explicitToken != null && !explicitToken.isEmpty())
++        ? explicitToken
++        : readAuthTokenFile(Paths.get(AUTH_JSON_PATH));
++    if (token != null && !token.isEmpty()) {
++      setAccessToken(token);
++    }
++    return this;
++  }
++
++  /**
++   * Read the "token" field from a LINSTOR auth.json file.
++   *
++   * @param path path to the auth.json file
++   * @return the token, or null if the file is missing, unreadable, or has no "token" field
++   */
++  static String readAuthTokenFile(Path path) {
++    if (path == null || !Files.exists(path)) {
++      return null;
++    }
++    try (InputStream in = Files.newInputStream(path)) {
++      JsonNode root = new ObjectMapper().readTree(in);
++      JsonNode tokenNode = root == null ? null : root.get("token");
++      if (tokenNode != null && tokenNode.isTextual()) {
++        return tokenNode.asText();
++      }
++    } catch (IOException exc) {
++      // missing or invalid auth.json: behave as if no token is configured
++    }
++    return null;
++  }
++
++  private static final class TrustAllManager implements X509TrustManager {
++    @Override public void checkClientTrusted(X509Certificate[] chain, String authType) { }
++    @Override public void checkServerTrusted(X509Certificate[] chain, String authType) { }
++    @Override public X509Certificate[] getAcceptedIssuers() { return new X509Certificate[0]; }
++  }
++
++  private static final class TrustAllHostnameVerifier implements HostnameVerifier {
++    @Override public boolean verify(String hostname, SSLSession session) { return true; }
++  }
++
+   /**
+    * Gets the status code of the previous request
+    * @return Status code
+@@ -771,7 +966,14 @@ public class ApiClient {
+       java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME).setLevel(java.util.logging.Level.ALL);
+     }
+     performAdditionalClientConfiguration(clientConfig);
+-    return ClientBuilder.newClient(clientConfig);
++    ClientBuilder clientBuilder = ClientBuilder.newBuilder().withConfig(clientConfig);
++    if (sslContext != null) {
++      clientBuilder.sslContext(sslContext);
++    }
++    if (hostnameVerifier != null) {
++      clientBuilder.hostnameVerifier(hostnameVerifier);
++    }
++    return clientBuilder.build();
+   }
+ 
+   protected void performAdditionalClientConfiguration(ClientConfig clientConfig) {

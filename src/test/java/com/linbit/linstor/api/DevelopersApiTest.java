@@ -81,12 +81,16 @@ public class DevelopersApiTest {
     private final DevelopersApi api;
 
     public DevelopersApiTest() {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
         Map<String, String> env = System.getenv();
-        apiClient.setBasePath(
-            String.format("http://%s:%s",
-                env.getOrDefault("LINSTOR_CONTROLLER_HOST", "localhost"),
-                env.getOrDefault("LINSTOR_CONTROLLER_PORT", "3370")));
+        String host = env.getOrDefault("LINSTOR_CONTROLLER_HOST", "lin1");
+        String port = env.getOrDefault("LINSTOR_CONTROLLER_PORT", "3370");
+        String token = env.getOrDefault("LINSTOR_API_TOKEN", "eHM0MTTGeTWgF8WMFDTNQygdvdT8SNiF");
+        ApiClient apiClient = Configuration.getDefaultApiClient();
+        apiClient.setBasePath(String.format("http://%s:%s", host, port));
+        // explicit token wins; falls back to /var/lib/linstor.d/auth.json when none is given
+        apiClient.setAccessTokenWithFallback(token);
+        apiClient.setInsecureSsl();       // trust the controller's self-signed HTTPS certificate
+        apiClient.discoverHttps();        // follow the controller's HTTP->HTTPS 302, switch to https
         api = new DevelopersApi(apiClient);
     }
 
