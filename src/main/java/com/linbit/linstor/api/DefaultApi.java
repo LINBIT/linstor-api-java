@@ -75,7 +75,7 @@ public class DefaultApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 

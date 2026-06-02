@@ -185,7 +185,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -224,7 +224,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -263,7 +263,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -301,7 +301,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<AuthTokenListResponse> localVarReturnType = new GenericType<AuthTokenListResponse>() {};
 
@@ -346,7 +346,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -389,7 +389,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
 
     if (headers != null) {
@@ -429,7 +429,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -467,7 +467,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ControllerConfig> localVarReturnType = new GenericType<ControllerConfig>() {};
 
@@ -506,7 +506,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -550,7 +550,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -588,7 +588,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Properties> localVarReturnType = new GenericType<Properties>() {};
 
@@ -627,7 +627,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -665,7 +665,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ControllerVersion> localVarReturnType = new GenericType<ControllerVersion>() {};
 
@@ -710,7 +710,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -749,7 +749,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -797,7 +797,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -836,7 +836,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -886,7 +886,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -934,7 +934,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<File> localVarReturnType = new GenericType<File>() {};
 
@@ -973,7 +973,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1012,7 +1012,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1051,7 +1051,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1090,7 +1090,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1134,7 +1134,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1184,7 +1184,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ErrorReport>> localVarReturnType = new GenericType<List<ErrorReport>>() {};
 
@@ -1240,7 +1240,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ErrorReport>> localVarReturnType = new GenericType<List<ErrorReport>>() {};
 
@@ -1278,7 +1278,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ErrorReportStats> localVarReturnType = new GenericType<ErrorReportStats>() {};
 
@@ -1322,7 +1322,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<PhysicalStorageNode>> localVarReturnType = new GenericType<List<PhysicalStorageNode>>() {};
 
@@ -1366,7 +1366,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1410,7 +1410,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<KeyValueStore>> localVarReturnType = new GenericType<List<KeyValueStore>>() {};
 
@@ -1455,7 +1455,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1493,7 +1493,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<KeyValueStore>> localVarReturnType = new GenericType<List<KeyValueStore>>() {};
 
@@ -1538,7 +1538,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1588,7 +1588,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1636,7 +1636,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<NetInterface>> localVarReturnType = new GenericType<List<NetInterface>>() {};
 
@@ -1687,7 +1687,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1726,7 +1726,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1765,7 +1765,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1816,7 +1816,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1858,7 +1858,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<NodeConnection>> localVarReturnType = new GenericType<List<NodeConnection>>() {};
 
@@ -1902,7 +1902,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1947,7 +1947,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -1986,7 +1986,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ReactorExecResponse>> localVarReturnType = new GenericType<List<ReactorExecResponse>>() {};
 
@@ -2025,7 +2025,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ReactorExecResponse>> localVarReturnType = new GenericType<List<ReactorExecResponse>>() {};
 
@@ -2064,7 +2064,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ReactorExecResponse>> localVarReturnType = new GenericType<List<ReactorExecResponse>>() {};
 
@@ -2103,7 +2103,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ReactorExecResponse>> localVarReturnType = new GenericType<List<ReactorExecResponse>>() {};
 
@@ -2142,7 +2142,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ReactorExecResponse>> localVarReturnType = new GenericType<List<ReactorExecResponse>>() {};
 
@@ -2188,7 +2188,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<Node>> localVarReturnType = new GenericType<List<Node>>() {};
 
@@ -2232,7 +2232,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -2277,7 +2277,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -2321,7 +2321,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -2359,7 +2359,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<NodeStats> localVarReturnType = new GenericType<NodeStats>() {};
 
@@ -2404,7 +2404,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -2454,7 +2454,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -2508,7 +2508,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<StoragePool>> localVarReturnType = new GenericType<List<StoragePool>>() {};
 
@@ -2559,7 +2559,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -2597,7 +2597,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<PassphraseStatus>> localVarReturnType = new GenericType<List<PassphraseStatus>>() {};
 
@@ -2636,7 +2636,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<QueryAllSizeInfoResponse> localVarReturnType = new GenericType<QueryAllSizeInfoResponse>() {};
 
@@ -2675,7 +2675,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<MaxVolumeSizes> localVarReturnType = new GenericType<MaxVolumeSizes>() {};
 
@@ -2721,7 +2721,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<MaxVolumeSizes> localVarReturnType = new GenericType<MaxVolumeSizes>() {};
 
@@ -2766,7 +2766,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<QuerySizeInfoResponse> localVarReturnType = new GenericType<QuerySizeInfoResponse>() {};
 
@@ -2811,7 +2811,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -2867,7 +2867,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ResourceConnection>> localVarReturnType = new GenericType<List<ResourceConnection>>() {};
 
@@ -2924,7 +2924,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -2968,7 +2968,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ResourceConnection>> localVarReturnType = new GenericType<List<ResourceConnection>>() {};
 
@@ -3013,7 +3013,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3064,7 +3064,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3109,7 +3109,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ResourceDefinitionCloneStarted> localVarReturnType = new GenericType<ResourceDefinitionCloneStarted>() {};
 
@@ -3159,7 +3159,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ResourceDefinitionCloneStatus> localVarReturnType = new GenericType<ResourceDefinitionCloneStatus>() {};
 
@@ -3198,7 +3198,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3242,7 +3242,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3290,7 +3290,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ResourceDefinition>> localVarReturnType = new GenericType<List<ResourceDefinition>>() {};
 
@@ -3335,7 +3335,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3373,7 +3373,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ResourceDefinitionStats> localVarReturnType = new GenericType<ResourceDefinitionStats>() {};
 
@@ -3417,7 +3417,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ResourceDefinitionSyncStatus> localVarReturnType = new GenericType<ResourceDefinitionSyncStatus>() {};
 
@@ -3469,7 +3469,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3518,7 +3518,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
 
     if (headers != null) {
@@ -3573,7 +3573,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3630,7 +3630,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3675,7 +3675,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3720,7 +3720,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3759,7 +3759,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3798,7 +3798,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3842,7 +3842,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3888,7 +3888,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ResourceGroup>> localVarReturnType = new GenericType<List<ResourceGroup>>() {};
 
@@ -3933,7 +3933,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -3978,7 +3978,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4016,7 +4016,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ResourceGroupStats> localVarReturnType = new GenericType<ResourceGroupStats>() {};
 
@@ -4064,7 +4064,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<Resource>> localVarReturnType = new GenericType<List<Resource>>() {};
 
@@ -4115,7 +4115,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4174,7 +4174,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4238,7 +4238,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4289,7 +4289,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4334,7 +4334,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4386,7 +4386,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4436,7 +4436,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Snapshot> localVarReturnType = new GenericType<Snapshot>() {};
 
@@ -4487,7 +4487,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4538,7 +4538,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4582,7 +4582,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<Snapshot>> localVarReturnType = new GenericType<List<Snapshot>>() {};
 
@@ -4633,7 +4633,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4684,7 +4684,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4737,7 +4737,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4796,7 +4796,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4848,7 +4848,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4906,7 +4906,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -4955,7 +4955,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
 
     if (headers != null) {
@@ -5008,7 +5008,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<Volume>> localVarReturnType = new GenericType<List<Volume>>() {};
 
@@ -5046,7 +5046,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ResourceStats> localVarReturnType = new GenericType<ResourceStats>() {};
 
@@ -5090,7 +5090,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<SatelliteConfig> localVarReturnType = new GenericType<SatelliteConfig>() {};
 
@@ -5141,7 +5141,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -5186,7 +5186,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -5231,7 +5231,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -5275,7 +5275,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -5314,7 +5314,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -5358,7 +5358,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<StoragePoolDefinition> localVarReturnType = new GenericType<StoragePoolDefinition>() {};
 
@@ -5400,7 +5400,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<StoragePoolDefinition>> localVarReturnType = new GenericType<List<StoragePoolDefinition>>() {};
 
@@ -5438,7 +5438,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<StoragePoolStats> localVarReturnType = new GenericType<StoragePoolStats>() {};
 
@@ -5476,7 +5476,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, Map<String, PropsInfo>>> localVarReturnType = new GenericType<Map<String, Map<String, PropsInfo>>>() {};
 
@@ -5514,7 +5514,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -5552,7 +5552,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
@@ -5590,7 +5590,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
@@ -5640,7 +5640,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ExtFileCheckResult> localVarReturnType = new GenericType<ExtFileCheckResult>() {};
 
@@ -5684,7 +5684,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -5728,7 +5728,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ExternalFile> localVarReturnType = new GenericType<ExternalFile>() {};
 
@@ -5773,7 +5773,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -5823,7 +5823,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ExtFileStatusResult> localVarReturnType = new GenericType<ExtFileStatusResult>() {};
 
@@ -5863,7 +5863,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ExternalFile>> localVarReturnType = new GenericType<List<ExternalFile>>() {};
 
@@ -5907,7 +5907,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -5945,7 +5945,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -5989,7 +5989,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6027,7 +6027,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<EbsRemote>> localVarReturnType = new GenericType<List<EbsRemote>>() {};
 
@@ -6066,7 +6066,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6111,7 +6111,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6149,7 +6149,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<RemoteList>> localVarReturnType = new GenericType<List<RemoteList>>() {};
 
@@ -6187,7 +6187,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<LinstorRemote>> localVarReturnType = new GenericType<List<LinstorRemote>>() {};
 
@@ -6226,7 +6226,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6271,7 +6271,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6316,7 +6316,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6384,7 +6384,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6432,7 +6432,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<BackupList> localVarReturnType = new GenericType<BackupList>() {};
 
@@ -6477,7 +6477,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<BackupInfo> localVarReturnType = new GenericType<BackupInfo>() {};
 
@@ -6522,7 +6522,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6567,7 +6567,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6621,7 +6621,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6672,7 +6672,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6723,7 +6723,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6768,7 +6768,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6806,7 +6806,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<S3Remote>> localVarReturnType = new GenericType<List<S3Remote>>() {};
 
@@ -6845,7 +6845,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6890,7 +6890,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -6928,7 +6928,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -6972,7 +6972,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -7016,7 +7016,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -7066,7 +7066,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -7110,7 +7110,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -7154,7 +7154,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -7192,7 +7192,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -7236,7 +7236,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -7274,7 +7274,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ScheduleList> localVarReturnType = new GenericType<ScheduleList>() {};
 
@@ -7313,7 +7313,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -7357,7 +7357,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -7402,7 +7402,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -7440,7 +7440,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<Map<String, PropsInfo>> localVarReturnType = new GenericType<Map<String, PropsInfo>>() {};
 
@@ -7488,7 +7488,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<BackupQueues> localVarReturnType = new GenericType<BackupQueues>() {};
 
@@ -7534,7 +7534,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ScheduledRscsList> localVarReturnType = new GenericType<ScheduledRscsList>() {};
 
@@ -7578,7 +7578,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ScheduleDetailsList> localVarReturnType = new GenericType<ScheduleDetailsList>() {};
 
@@ -7620,7 +7620,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<PhysicalStorage>> localVarReturnType = new GenericType<List<PhysicalStorage>>() {};
 
@@ -7670,7 +7670,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<ResourceWithVolumes>> localVarReturnType = new GenericType<List<ResourceWithVolumes>>() {};
 
@@ -7716,7 +7716,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<Snapshot>> localVarReturnType = new GenericType<List<Snapshot>>() {};
 
@@ -7766,7 +7766,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<StoragePool>> localVarReturnType = new GenericType<List<StoragePool>>() {};
 
@@ -7811,7 +7811,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -7861,7 +7861,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -7909,7 +7909,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<VolumeDefinition>> localVarReturnType = new GenericType<List<VolumeDefinition>>() {};
 
@@ -7960,7 +7960,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -8011,7 +8011,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -8056,7 +8056,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -8106,7 +8106,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -8154,7 +8154,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<List<VolumeGroup>> localVarReturnType = new GenericType<List<VolumeGroup>>() {};
 
@@ -8205,7 +8205,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
@@ -8262,7 +8262,7 @@ public class DevelopersApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
 
