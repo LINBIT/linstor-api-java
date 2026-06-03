@@ -13,6 +13,7 @@ plugins {
     id 'maven-publish'
     id 'org.jreleaser' version '1.24.0'
     id 'signing'
+    id 'jacoco'
 }
 
 group = 'com.linbit.linstor.api'
@@ -40,6 +41,19 @@ tasks.register('sourcesJar', Jar) {
 tasks.register('javadocJar', Jar) {
     from javadoc
     archiveClassifier = 'javadoc'
+}
+
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        html.required = true
+        xml.required = true
+        csv.required = true
+    }
 }
 
 publishing {

@@ -25,9 +25,14 @@ test:
       curl -X POST -H "Content-Type: application/json" -d '{"resource_definition": {"name": "rsc-restart"}}' http://linstor-controller:3370/v1/resource-definitions
       curl -X POST -H "Content-Type: application/json" -d '{"volume_definition": {"size_kib": 104857600, "flags": []}, "drbd_minor_number": 1002}' http://linstor-controller:3370/v1/resource-definitions/rsc-restart/volume-definitions
     - JAVA_OPTS="-ea" ./gradlew test
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print "Total", 100*covered/instructions, "% covered" }' build/reports/jacoco/test/jacocoTestReport.csv
+  coverage: '/Total (\d+.\d+) % covered/'
   artifacts:
     reports:
       junit: build/test-results/test/TEST-*.xml
+      coverage_report:
+        coverage_format: jacoco
+        path: build/reports/jacoco/test/jacocoTestReport.xml
 
 test-token-auth:
   stage: test
@@ -46,6 +51,11 @@ test-token-auth:
       export LINSTOR_API_TOKEN="$TOKEN"
       echo "Token auth initialized (token length: ${#TOKEN})"
     - JAVA_OPTS="-ea" ./gradlew test
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print "Total", 100*covered/instructions, "% covered" }' build/reports/jacoco/test/jacocoTestReport.csv
+  coverage: '/Total (\d+.\d+) % covered/'
   artifacts:
     reports:
       junit: build/test-results/test/TEST-*.xml
+      coverage_report:
+        coverage_format: jacoco
+        path: build/reports/jacoco/test/jacocoTestReport.xml
