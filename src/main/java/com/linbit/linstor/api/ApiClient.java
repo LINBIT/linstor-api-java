@@ -67,7 +67,7 @@ import com.linbit.linstor.api.auth.HttpBasicAuth;
 import com.linbit.linstor.api.auth.ApiKeyAuth;
 import com.linbit.linstor.api.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-29T10:05:03.218384239Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-06-03T06:16:23.152592345Z[Etc/UTC]")
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected String basePath = "http://localhost:3370";
@@ -96,7 +96,7 @@ public class ApiClient {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("Swagger-Codegen/1.0.0/java");
+    setUserAgent("java-linstor/0.7.0");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
