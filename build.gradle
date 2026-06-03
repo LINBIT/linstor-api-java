@@ -101,6 +101,19 @@ publishing {
 }
 
 jreleaser {
+    release {
+        // Required by JReleaser's model, but we only deploy to Maven Central -
+        // skip creating any Git release/tag.
+        github {
+            repoOwner = 'LINBIT'
+            name = 'linstor-api-java'
+            skipRelease = true
+            skipTag = true
+            // releases are skipped, so this token is never used - placeholder to satisfy
+            // JReleaser's non-blank validation without requiring a real GitHub token.
+            token = 'unused'
+        }
+    }
     signing {
         active = 'ALWAYS'
         armored = true
@@ -111,7 +124,7 @@ jreleaser {
                 sonatype {
                     active = 'ALWAYS'
                     url = 'https://central.sonatype.com/api/v1/publisher'
-                    stagingRepository('target/staging-deploy')
+                    stagingRepository('build/staging-deploy')
                 }
             }
         }
