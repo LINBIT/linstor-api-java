@@ -25,11 +25,23 @@ Prerequisites
 
       JRELEASER_MAVENCENTRAL_SONATYPE_USERNAME   # Central Portal token username
       JRELEASER_MAVENCENTRAL_SONATYPE_TOKEN      # Central Portal token password
+      JRELEASER_GPG_PUBLIC_KEY                   # armored public key
       JRELEASER_GPG_SECRET_KEY                   # armored secret key (signs the artifacts)
       JRELEASER_GPG_PASSPHRASE                   # passphrase for the secret key
 
-  (Only the secret key is needed — `JRELEASER_GPG_PUBLIC_KEY` was deprecated in
-  JReleaser 1.24.0. These can also live in `~/.jreleaser/config.properties`.)
+  The `signing` block in `build.gradle` sets no `mode`, so JReleaser signs in-process
+  (mode `MEMORY`) and needs the whole key pair — with only the secret key it fails
+  with "JRELEASER_GPG_PUBLIC_KEY must be set". Export both from the keyring:
+
+      export JRELEASER_GPG_PUBLIC_KEY="$(gpg --armor --export <key-id>)"
+      export JRELEASER_GPG_SECRET_KEY="$(gpg --armor --export-secret-keys <key-id>)"
+
+  These can also live in `~/.jreleaser/config.properties`. Note that the `signing.*`
+  and `sonatype*` entries in `gradle.properties` belong to the Gradle signing and the
+  old OSSRH publishing plugins — JReleaser does not read them.
+
+  Alternatively set `mode = 'COMMAND'` in the `signing` block to sign with the local
+  gpg binary instead of handing the keys to JReleaser.
 
 Steps
 -----
