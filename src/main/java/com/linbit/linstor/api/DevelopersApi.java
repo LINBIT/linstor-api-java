@@ -120,7 +120,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-29T10:05:03.218384239Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-08-17T09:43:12.134243880Z[Etc/UTC]")
 public class DevelopersApi {
   private ApiClient apiClient;
   private Map<String, String> headers;
@@ -1599,6 +1599,56 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * Lists a specific netinterface of a node
+   * Returns a specific netinterface of a node
+   * @param node node to use (required)
+   * @param netinterface netinterface name to use (required)
+   * @return NetInterface
+   * @throws ApiException if fails to make API call
+   */
+  public NetInterface netinterfaceGet(String node, String netinterface) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'node' is set
+    if (node == null) {
+      throw new ApiException(400, "Missing the required parameter 'node' when calling netinterfaceGet");
+    }
+    // verify the required parameter 'netinterface' is set
+    if (netinterface == null) {
+      throw new ApiException(400, "Missing the required parameter 'netinterface' when calling netinterfaceGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/nodes/{node}/net-interfaces/{netinterface}"
+      .replaceAll("\\{" + "node" + "\\}", apiClient.escapeString(node.toString()))
+      .replaceAll("\\{" + "netinterface" + "\\}", apiClient.escapeString(netinterface.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<NetInterface> localVarReturnType = new GenericType<NetInterface>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * return the list of net-interfaces
    * Returns the list of netinterfaces for this node
    * @param node node to use (required)
@@ -1958,6 +2008,50 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * evicts the node
+   * Marks an offline node as EVICTED and tries to restore the redundancy of the DRBD resources of the evicted node by placing them on other nodes. Evicting an online node is not possible. An evicted node can be reactivated using node restore. 
+   * @param node node to use (required)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList nodeEvict(String node) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'node' is set
+    if (node == null) {
+      throw new ApiException(400, "Missing the required parameter 'node' when calling nodeEvict");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/nodes/{node}/evict"
+      .replaceAll("\\{" + "node" + "\\}", apiClient.escapeString(node.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * disable drbd-reactor plugin on nodes
    * Executes &#x27;drbd-reactorctl disable &lt;config&gt;&#x27; on specified nodes. If &#x27;now&#x27; is true, also stops the drbd-services target immediately (equivalent to &#x27;drbd-reactorctl disable --now &lt;config&gt;&#x27;). 
    * @param body  (optional)
@@ -2153,10 +2247,54 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * Lists a specific node
+   * Returns a specific node registered to Linstor
+   * @param node node to use (required)
+   * @return Node
+   * @throws ApiException if fails to make API call
+   */
+  public Node nodeGet(String node) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'node' is set
+    if (node == null) {
+      throw new ApiException(400, "Missing the required parameter 'node' when calling nodeGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/nodes/{node}"
+      .replaceAll("\\{" + "node" + "\\}", apiClient.escapeString(node.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<Node> localVarReturnType = new GenericType<Node>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * Lists nodes registered to the controller
    * Returns an array of all nodes registered to Linstor. 
-   * @param nodes Filter only for the specified nodes, if not specified, no filtering. (optional)
-   * @param props filter by given properties, full property path (optional)
+   * @param nodes Filter only for the specified nodes, if not specified, no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
+   * @param props Filter by given properties, full property path. A filter is either a property key (matches if the property is set) or &#x60;key&#x3D;value&#x60; (matches if the property has that value). Both the key and the value may be Java regular expressions (matched in full), case-sensitively, e.g. &#x60;Aux/.*&#x60; or &#x60;DrbdOptions/.*&#x3D;yes&#x60;. Multiple filters are combined with AND. (optional)
    * @param offset number of records to skip for pagination (optional)
    * @param limit maximum number of records to return (optional)
    * @return List&lt;Node&gt;
@@ -2465,18 +2603,71 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * Lists a specific storage pool of a node
+   * Returns a specific storage pool of a node
+   * @param node node to use (required)
+   * @param storagepool Storage pool to use (required)
+   * @param cached query data from cache if available (optional)
+   * @return StoragePool
+   * @throws ApiException if fails to make API call
+   */
+  public StoragePool nodeStoragePoolGet(String node, String storagepool, Boolean cached) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'node' is set
+    if (node == null) {
+      throw new ApiException(400, "Missing the required parameter 'node' when calling nodeStoragePoolGet");
+    }
+    // verify the required parameter 'storagepool' is set
+    if (storagepool == null) {
+      throw new ApiException(400, "Missing the required parameter 'storagepool' when calling nodeStoragePoolGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/nodes/{node}/storage-pools/{storagepool}"
+      .replaceAll("\\{" + "node" + "\\}", apiClient.escapeString(node.toString()))
+      .replaceAll("\\{" + "storagepool" + "\\}", apiClient.escapeString(storagepool.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cached", cached));
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<StoragePool> localVarReturnType = new GenericType<StoragePool>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * lists all storage pools for a node
    * Lists all storage pools of a node
    * @param node node to use (required)
-   * @param nodes Filter only for the specified nodes, if not specified, no filtering. (optional)
-   * @param storagePools Filter only for the specified storage pools, if not specified no filtering. (optional)
+   * @param nodes Filter only for the specified nodes, if not specified, no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
+   * @param storagePools Filter only for the specified storage pools, if not specified no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
+   * @param props Filter by given properties, full property path. A filter is either a property key (matches if the property is set) or &#x60;key&#x3D;value&#x60; (matches if the property has that value). Both the key and the value may be Java regular expressions (matched in full), case-sensitively, e.g. &#x60;Aux/.*&#x60; or &#x60;DrbdOptions/.*&#x3D;yes&#x60;. Multiple filters are combined with AND. (optional)
    * @param offset number of records to skip for pagination (optional)
    * @param limit maximum number of records to return (optional)
    * @param cached query data from cache if available (optional)
    * @return List&lt;StoragePool&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<StoragePool> nodeStoragePoolList(String node, List<String> nodes, List<String> storagePools, Integer offset, Integer limit, Boolean cached) throws ApiException {
+  public List<StoragePool> nodeStoragePoolList(String node, List<String> nodes, List<String> storagePools, List<String> props, Integer offset, Integer limit, Boolean cached) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'node' is set
     if (node == null) {
@@ -2493,6 +2684,7 @@ public class DevelopersApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "nodes", nodes));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "storage_pools", storagePools));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "props", props));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "cached", cached));
@@ -3253,11 +3445,55 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * Lists a specific resource-definition
+   * Returns a specific resource-definition
+   * @param resource resource to use (required)
+   * @return ResourceDefinition
+   * @throws ApiException if fails to make API call
+   */
+  public ResourceDefinition resourceDefinitionGet(String resource) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceDefinitionGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<ResourceDefinition> localVarReturnType = new GenericType<ResourceDefinition>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * lists all resource-definitions
    * Lists all resource definitions.  A single resource definition can be queried by adding its name to the resource string like:  /v1/resource-definitions/rsc1 
-   * @param resourceDefinitions Filter only for the specified resource definitions, if not specified no filtering. (optional)
+   * @param resourceDefinitions Filter only for the specified resource definitions, if not specified no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
    * @param withVolumeDefinitions Include volume definitions attached to the resource definition (optional, default to false)
-   * @param props filter by given properties, full property path (optional)
+   * @param props Filter by given properties, full property path. A filter is either a property key (matches if the property is set) or &#x60;key&#x3D;value&#x60; (matches if the property has that value). Both the key and the value may be Java regular expressions (matched in full), case-sensitively, e.g. &#x60;Aux/.*&#x60; or &#x60;DrbdOptions/.*&#x3D;yes&#x60;. Multiple filters are combined with AND. (optional)
    * @param offset number of records to skip for pagination (optional)
    * @param limit maximum number of records to return (optional)
    * @return List&lt;ResourceDefinition&gt;
@@ -3426,6 +3662,52 @@ public class DevelopersApi {
     }
 
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * truncate a resource-definition
+   * Deletes all resources of the resource-definition (\&quot;truncate\&quot;) without deleting the resource-definition itself or any of its snapshots.  If &#x60;delete_empty_resource_definition&#x60; is set, the resource-definition is deleted as well when it has neither resources nor snapshots left after the truncate. The check and the resource-definition deletion are performed atomically, so a concurrently created resource or snapshot keeps the resource-definition. 
+   * @param resource resource to use (required)
+   * @param deleteEmptyResourceDefinition If true, also delete the resource-definition when it has neither resources nor snapshots left after its resources have been deleted. The check and the resource-definition deletion are performed atomically.  (optional, default to false)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList resourceDefinitionTruncate(String resource, Boolean deleteEmptyResourceDefinition) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceDefinitionTruncate");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/resources"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "delete_empty_resource_definition", deleteEmptyResourceDefinition));
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * delete a resource
@@ -3686,6 +3968,56 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * Lists a specific resource on a node
+   * Returns a specific resource of a resource-definition on the given node
+   * @param resource resource to use (required)
+   * @param node node to use (required)
+   * @return Resource
+   * @throws ApiException if fails to make API call
+   */
+  public Resource resourceGet(String resource, String node) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceGet");
+    }
+    // verify the required parameter 'node' is set
+    if (node == null) {
+      throw new ApiException(400, "Missing the required parameter 'node' when calling resourceGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/resources/{node}"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "node" + "\\}", apiClient.escapeString(node.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<Resource> localVarReturnType = new GenericType<Resource>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * adjusts (calls autoplace for) all resource-definitions of the given resource-group
    * Adjusts (calls autoplace for) all resource-definitions of the given resource-group 
    * @param resourceGroup resource group to use (required)
@@ -3853,10 +4185,54 @@ public class DevelopersApi {
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
+   * Lists a specific resource-group
+   * Returns a specific resource-group
+   * @param resourceGroup resource group to use (required)
+   * @return ResourceGroup
+   * @throws ApiException if fails to make API call
+   */
+  public ResourceGroup resourceGroupGet(String resourceGroup) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resourceGroup' is set
+    if (resourceGroup == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceGroup' when calling resourceGroupGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-groups/{resource_group}"
+      .replaceAll("\\{" + "resource_group" + "\\}", apiClient.escapeString(resourceGroup.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<ResourceGroup> localVarReturnType = new GenericType<ResourceGroup>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * lists all resource-groups
    * Lists all resource groups.  A single resource group can be queried by adding its name to the resource string like:  /v1/resource-groups/rscgrp1 
-   * @param resourceGroups Filter only for the specified resource groups, if not specified no filtering. (optional)
-   * @param props filter by given properties, full property path (optional)
+   * @param resourceGroups Filter only for the specified resource groups, if not specified no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
+   * @param props Filter by given properties, full property path. A filter is either a property key (matches if the property is set) or &#x60;key&#x3D;value&#x60; (matches if the property has that value). Both the key and the value may be Java regular expressions (matched in full), case-sensitively, e.g. &#x60;Aux/.*&#x60; or &#x60;DrbdOptions/.*&#x3D;yes&#x60;. Multiple filters are combined with AND. (optional)
    * @param offset number of records to skip for pagination (optional)
    * @param limit maximum number of records to return (optional)
    * @return List&lt;ResourceGroup&gt;
@@ -4350,10 +4726,11 @@ public class DevelopersApi {
    * @param resource resource to use (required)
    * @param snapshot Snapshot name to use (required)
    * @param nodes Only delete snapshots of the given nodes. (optional)
+   * @param deleteEmptyResourceDefinition If true, also delete the resource-definition when it has neither resources nor snapshots left after this snapshot has been deleted. The check and the resource-definition deletion are performed atomically.  (optional, default to false)
    * @return ApiCallRcList
    * @throws ApiException if fails to make API call
    */
-  public ApiCallRcList resourceSnapshotDelete(String resource, String snapshot, List<String> nodes) throws ApiException {
+  public ApiCallRcList resourceSnapshotDelete(String resource, String snapshot, List<String> nodes, Boolean deleteEmptyResourceDefinition) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'resource' is set
     if (resource == null) {
@@ -4374,6 +4751,7 @@ public class DevelopersApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "nodes", nodes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "delete_empty_resource_definition", deleteEmptyResourceDefinition));
 
 
     final String[] localVarAccepts = {
@@ -4965,16 +5343,123 @@ public class DevelopersApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
+   * reverts a make-available issued for a live migration
+   * Reverts the changes of a make-available with &#x60;auto_manage_dual_primary&#x60; and removes the resource from the given node (the migration source) if that can be done without losing data: the resource is deleted if it is diskless or if it is a redundant copy in a shared storage pool. Tiebreaker and diskful resources are kept.  Calling this for a resource that is not deployed on the node is a successful no-op, so automation clients can always issue this call after a migration. 
+   * @param resource resource to use (required)
+   * @param node node to use (required)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList resourceUnmakeAvailableOnNode(String resource, String node) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceUnmakeAvailableOnNode");
+    }
+    // verify the required parameter 'node' is set
+    if (node == null) {
+      throw new ApiException(400, "Missing the required parameter 'node' when calling resourceUnmakeAvailableOnNode");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/resources/{node}/unmake-available"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "node" + "\\}", apiClient.escapeString(node.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * Lists a specific volume of a resource
+   * Returns a specific volume of a resource on the given node
+   * @param resource resource to use (required)
+   * @param node node to use (required)
+   * @param volumeNumber Volume number of the definition (required)
+   * @return Volume
+   * @throws ApiException if fails to make API call
+   */
+  public Volume resourceVolumeGet(String resource, String node, Integer volumeNumber) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling resourceVolumeGet");
+    }
+    // verify the required parameter 'node' is set
+    if (node == null) {
+      throw new ApiException(400, "Missing the required parameter 'node' when calling resourceVolumeGet");
+    }
+    // verify the required parameter 'volumeNumber' is set
+    if (volumeNumber == null) {
+      throw new ApiException(400, "Missing the required parameter 'volumeNumber' when calling resourceVolumeGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/resources/{node}/volumes/{volume_number}"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "node" + "\\}", apiClient.escapeString(node.toString()))
+      .replaceAll("\\{" + "volume_number" + "\\}", apiClient.escapeString(volumeNumber.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<Volume> localVarReturnType = new GenericType<Volume>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
    * lists all volumes of a resources
    * Lists all volumes for a resource-definition.  A single volume can be queried by adding its volume number to the resource string like:  /v1/resource-definitions/rsc1/resources/nodeA/volumes/0 
    * @param resource resource to use (required)
    * @param node node to use (required)
+   * @param props Filter by given properties, full property path. A filter is either a property key (matches if the property is set) or &#x60;key&#x3D;value&#x60; (matches if the property has that value). Both the key and the value may be Java regular expressions (matched in full), case-sensitively, e.g. &#x60;Aux/.*&#x60; or &#x60;DrbdOptions/.*&#x3D;yes&#x60;. Multiple filters are combined with AND. (optional)
    * @param offset number of records to skip for pagination (optional)
    * @param limit maximum number of records to return (optional)
    * @return List&lt;Volume&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Volume> resourceVolumeList(String resource, String node, Integer offset, Integer limit) throws ApiException {
+  public List<Volume> resourceVolumeList(String resource, String node, List<String> props, Integer offset, Integer limit) throws ApiException {
     Object localVarPostBody = null;
     // verify the required parameter 'resource' is set
     if (resource == null) {
@@ -4994,6 +5479,7 @@ public class DevelopersApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "props", props));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
@@ -7633,10 +8119,10 @@ public class DevelopersApi {
   /**
    * query all resources with their volumes
    * This REST-resource should be used if you want to get an overview of all resources with their volumes.
-   * @param nodes Filter only for the specified nodes, if not specified, no filtering. (optional)
-   * @param resources Filter only for the specified resources, if not specified, no filtering. (optional)
-   * @param storagePools Filter only for the specified storage pools, if not specified no filtering. (optional)
-   * @param props filter by given properties, full property path (optional)
+   * @param nodes Filter only for the specified nodes, if not specified, no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
+   * @param resources Filter only for the specified resources, if not specified, no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
+   * @param storagePools Filter only for the specified storage pools, if not specified no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
+   * @param props Filter by given properties, full property path. A filter is either a property key (matches if the property is set) or &#x60;key&#x3D;value&#x60; (matches if the property has that value). Both the key and the value may be Java regular expressions (matched in full), case-sensitively, e.g. &#x60;Aux/.*&#x60; or &#x60;DrbdOptions/.*&#x3D;yes&#x60;. Multiple filters are combined with AND. (optional)
    * @param offset number of records to skip for pagination (optional)
    * @param limit maximum number of records to return (optional)
    * @return List&lt;ResourceWithVolumes&gt;
@@ -7683,8 +8169,8 @@ public class DevelopersApi {
   /**
    * query all snapshots known to linstor
    * This REST-resource should be used if you want to get an overview of all snapshots.
-   * @param nodes Filter only for the specified nodes, if not specified, no filtering. (optional)
-   * @param resources Filter only for the specified resources, if not specified, no filtering. (optional)
+   * @param nodes Filter only for the specified nodes, if not specified, no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
+   * @param resources Filter only for the specified resources, if not specified, no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
    * @param offset number of records to skip for pagination (optional)
    * @param limit maximum number of records to return (optional)
    * @return List&lt;Snapshot&gt;
@@ -7729,9 +8215,9 @@ public class DevelopersApi {
   /**
    * query all storage pools
    * This REST-resource should be used if you want to get an overview of all storage pools.
-   * @param nodes Filter only for the specified nodes, if not specified, no filtering. (optional)
-   * @param storagePools Filter only for the specified storage pools, if not specified no filtering. (optional)
-   * @param props filter by given properties, full property path (optional)
+   * @param nodes Filter only for the specified nodes, if not specified, no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
+   * @param storagePools Filter only for the specified storage pools, if not specified no filtering. Names may be Java regular expressions and are matched case-insensitively. (optional)
+   * @param props Filter by given properties, full property path. A filter is either a property key (matches if the property is set) or &#x60;key&#x3D;value&#x60; (matches if the property has that value). Both the key and the value may be Java regular expressions (matched in full), case-sensitively, e.g. &#x60;Aux/.*&#x60; or &#x60;DrbdOptions/.*&#x3D;yes&#x60;. Multiple filters are combined with AND. (optional)
    * @param offset number of records to skip for pagination (optional)
    * @param limit maximum number of records to return (optional)
    * @param cached query data from cache if available (optional)
@@ -7870,6 +8356,56 @@ public class DevelopersApi {
     }
 
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * Lists a specific volume-definition
+   * Returns a specific volume-definition of a resource-definition
+   * @param resource resource to use (required)
+   * @param volumeNumber Volume number of the definition (required)
+   * @return VolumeDefinition
+   * @throws ApiException if fails to make API call
+   */
+  public VolumeDefinition volumeDefinitionGet(String resource, Integer volumeNumber) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling volumeDefinitionGet");
+    }
+    // verify the required parameter 'volumeNumber' is set
+    if (volumeNumber == null) {
+      throw new ApiException(400, "Missing the required parameter 'volumeNumber' when calling volumeDefinitionGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/volume-definitions/{volume_number}"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "volume_number" + "\\}", apiClient.escapeString(volumeNumber.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<VolumeDefinition> localVarReturnType = new GenericType<VolumeDefinition>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * lists all volume-definitions
@@ -8115,6 +8651,56 @@ public class DevelopersApi {
     }
 
     return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * Lists a specific volume-group
+   * Returns a specific volume-group of a resource-group
+   * @param resourceGroup resource group to use (required)
+   * @param volumeNumber Volume number of the definition (required)
+   * @return VolumeGroup
+   * @throws ApiException if fails to make API call
+   */
+  public VolumeGroup volumeGroupGet(String resourceGroup, Integer volumeNumber) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resourceGroup' is set
+    if (resourceGroup == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceGroup' when calling volumeGroupGet");
+    }
+    // verify the required parameter 'volumeNumber' is set
+    if (volumeNumber == null) {
+      throw new ApiException(400, "Missing the required parameter 'volumeNumber' when calling volumeGroupGet");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-groups/{resource_group}/volume-groups/{volume_number}"
+      .replaceAll("\\{" + "resource_group" + "\\}", apiClient.escapeString(resourceGroup.toString()))
+      .replaceAll("\\{" + "volume_number" + "\\}", apiClient.escapeString(volumeNumber.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<VolumeGroup> localVarReturnType = new GenericType<VolumeGroup>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * lists all volume-groups
