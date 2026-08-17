@@ -14,7 +14,11 @@ public class JSON implements ContextResolver<ObjectMapper> {
 
   public JSON() {
     mapper = new ObjectMapper();
-    mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    // NON_DEFAULT (instead of NON_NULL) only serializes properties the caller actually
+    // changed. Fields with a schema default are generated with that default as initializer,
+    // so with NON_NULL they would always be sent - and controllers reject properties they
+    // do not know yet, breaking newer clients against older controllers.
+    mapper.setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);
     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     mapper.configure(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE, false);
     mapper.configure(DeserializationFeature.FAIL_ON_MISSING_EXTERNAL_TYPE_ID_PROPERTY, false);
