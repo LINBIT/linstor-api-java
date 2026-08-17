@@ -655,7 +655,7 @@ public class DevelopersApiTest {
         List<String> storagePools = null;
         Integer offset = null;
         Integer limit = null;
-        List<StoragePool> response = api.nodeStoragePoolList(node, nodes, storagePools, offset, limit, false);
+        List<StoragePool> response = api.nodeStoragePoolList(node, nodes, storagePools, null, offset, limit, false);
 
         // TODO: test validations
     }
@@ -1145,7 +1145,7 @@ public class DevelopersApiTest {
     public void resourceSnapshotDeleteTest() throws ApiException {
         String resource = null;
         String snapshot = null;
-        ApiCallRcList response = api.resourceSnapshotDelete(resource, snapshot, Collections.emptyList());
+        ApiCallRcList response = api.resourceSnapshotDelete(resource, snapshot, Collections.emptyList(), null);
 
         // TODO: test validations
     }
@@ -1321,7 +1321,7 @@ public class DevelopersApiTest {
         String node = null;
         Integer offset = null;
         Integer limit = null;
-        List<Volume> response = api.resourceVolumeList(resource, node, offset, limit);
+        List<Volume> response = api.resourceVolumeList(resource, node, null, offset, limit);
 
         for (Volume v : response) {
             System.out.println(v.getDevicePath());
