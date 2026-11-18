@@ -247,6 +247,9 @@ public class ApiConsts
     /*
      * Other failures
      */
+    public static final long FAIL_CBT_FULL_BACKUP_REQUIRED = 967 | MASK_ERROR;
+    public static final long FAIL_CBT_START = 968 | MASK_ERROR;
+    public static final long FAIL_CBT_NOT_SUPPORTED = 969 | MASK_ERROR;
     public static final long FAIL_ONLY_ONE_ACT_RSC_PER_SHARED_STOR_POOL_ALLOWED = 981 | MASK_ERROR;
     public static final long FAIL_CRYPT_INIT = 982 | MASK_ERROR;
     public static final long FAIL_SNAPSHOT_SHIPPING_NOT_SUPPORTED = 983 | MASK_ERROR;
@@ -583,6 +586,11 @@ public class ApiConsts
     public static final String KEY_AUTO_SNAPSHOT_NEXT_ID = "NextAutoId";
 
     /*
+     * Changed block tracking property keys (namespace NAMESPC_CBT)
+     */
+    public static final String KEY_CBT_ID = "Id";
+
+    /*
      * Property namespaces
      */
     public static final String NAMESPC_NETCOM = "NetCom";
@@ -617,6 +625,7 @@ public class ApiConsts
     public static final String NAMESPC_AUTOPLACER_WEIGHTS = "Autoplacer/Weights";
     public static final String NAMESPC_SNAPSHOT_SHIPPING = "SnapshotShipping";
     public static final String NAMESPC_AUTO_SNAPSHOT = "AutoSnapshot";
+    public static final String NAMESPC_CBT = "Cbt";
 
     /*
      * Storage pool property keys
@@ -794,6 +803,7 @@ public class ApiConsts
     public static final String FLAG_DRBD_DISKLESS = "DRBD_DISKLESS";
     public static final String FLAG_NVME_INITIATOR = "NVME_INITIATOR";
     public static final String FLAG_RSC_INACTIVE = "INACTIVE";
+    public static final String FLAG_CBT = "CBT";
 
     /*
      * Device layer kinds

@@ -21,6 +21,9 @@ import com.linbit.linstor.api.model.BackupQueues;
 import com.linbit.linstor.api.model.BackupRestore;
 import com.linbit.linstor.api.model.BackupSchedule;
 import com.linbit.linstor.api.model.BackupShip;
+import com.linbit.linstor.api.model.CbtExtents;
+import com.linbit.linstor.api.model.CbtSession;
+import com.linbit.linstor.api.model.CbtSessionStart;
 import com.linbit.linstor.api.model.ControllerConfig;
 import com.linbit.linstor.api.model.ControllerPropsModify;
 import com.linbit.linstor.api.model.ControllerVersion;
@@ -32,6 +35,7 @@ import com.linbit.linstor.api.model.DrbdProxyModify;
 import com.linbit.linstor.api.model.EbsRemote;
 import com.linbit.linstor.api.model.ErrorReport;
 import com.linbit.linstor.api.model.ErrorReportDelete;
+import com.linbit.linstor.api.model.ErrorReportPage;
 import com.linbit.linstor.api.model.ErrorReportStats;
 import com.linbit.linstor.api.model.ExtFileCheckResult;
 import com.linbit.linstor.api.model.ExtFileStatusResult;
@@ -120,7 +124,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-08-27T07:18:57.783491023Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-11-18T17:20:01.090802976Z[Etc/UTC]")
 public class DevelopersApi {
   private ApiClient apiClient;
   private Map<String, String> headers;
@@ -4677,7 +4681,7 @@ public class DevelopersApi {
   }
   /**
    * create a snapshot
-   * Create a snapshot for a resource
+   * Create a snapshot for a resource.  With the flag &#x60;CBT&#x60; the snapshot is a changed block tracking snapshot: DRBD writes its tracking bitmap into the snapshot and starts a new tracking interval. The snapshot then describes the changes since the previous CBT snapshot of the resource. Its bookmark id is the snapshot definition property &#x60;Cbt/Id&#x60;. Needs DRBD on LVM, LVM-thin, ZFS or ZFS-thin storage (optionally with LUKS, CACHE or WRITECACHE), else the request fails with FAIL_CBT_NOT_SUPPORTED. If DRBD refuses to start the tracking (e.g. no free bitmap slot), the snapshot fails with FAIL_CBT_START. 
    * @param resource resource to use (required)
    * @param body  (optional)
    * @return ApiCallRcList
@@ -5585,6 +5589,219 @@ public class DevelopersApi {
     }
 
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * extents of a CBT snapshot
+   * The extents of the volume from &#x60;start_offset&#x60; on. They cover the volume without gaps, and neighboring extents differ in their flags, as the extents of ovirt-imageio do. &#x60;dirty&#x60; extents changed between the previous CBT snapshot (&#x60;base_cbt_id&#x60;) and this one, &#x60;zero&#x60; extents were never written since the volume was created. If &#x60;next_offset&#x60; is set, &#x60;max_extents&#x60; was reached and the next request continues there; without it the rest of the volume is done. Fails with FAIL_CBT_FULL_BACKUP_REQUIRED if the snapshot holds nothing to rely on for the mode: in mode &#x60;dirty&#x60; no tracking interval (e.g. the first CBT snapshot of the volume), in mode &#x60;zero&#x60; no record of the never written ranges (rare, e.g. without an activity log). 
+   * @param resource resource to use (required)
+   * @param snapshot Snapshot name to use (required)
+   * @param volumeNumber Volume number of the definition (required)
+   * @param startOffset Byte offset to start at, an extent crossing it is clipped to start there (optional, default to 0)
+   * @param maxExtents Maximum number of extents in the response (optional, default to 10000)
+   * @param mode &#x60;dirty&#x60;: the extents with the flags &#x60;dirty&#x60; and &#x60;zero&#x60;, for incremental backups. &#x60;zero&#x60;: the extents with the flag &#x60;zero&#x60; only, for full backups; works without a tracking interval (e.g. the first CBT snapshot of the volume).  (optional, default to dirty)
+   * @return CbtExtents
+   * @throws ApiException if fails to make API call
+   */
+  public CbtExtents snapshotCbtSessionExtents(String resource, String snapshot, Integer volumeNumber, Long startOffset, Integer maxExtents, String mode) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling snapshotCbtSessionExtents");
+    }
+    // verify the required parameter 'snapshot' is set
+    if (snapshot == null) {
+      throw new ApiException(400, "Missing the required parameter 'snapshot' when calling snapshotCbtSessionExtents");
+    }
+    // verify the required parameter 'volumeNumber' is set
+    if (volumeNumber == null) {
+      throw new ApiException(400, "Missing the required parameter 'volumeNumber' when calling snapshotCbtSessionExtents");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/snapshots/{snapshot}/cbt-session/volumes/{volume_number}/extents"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "snapshot" + "\\}", apiClient.escapeString(snapshot.toString()))
+      .replaceAll("\\{" + "volume_number" + "\\}", apiClient.escapeString(volumeNumber.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_offset", startOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "max_extents", maxExtents));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "mode", mode));
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<CbtExtents> localVarReturnType = new GenericType<CbtExtents>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * finish a CBT session
+   * Closes the snapshot and deletes the temporary resource of the CBT session. If the temporary resource can&#x27;t be deleted, the session stays (and with it the protection of the snapshot) and the request fails with the errors of the deletion; finish the session again once the cause is fixed. 
+   * @param resource resource to use (required)
+   * @param snapshot Snapshot name to use (required)
+   * @return ApiCallRcList
+   * @throws ApiException if fails to make API call
+   */
+  public ApiCallRcList snapshotCbtSessionFinish(String resource, String snapshot) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling snapshotCbtSessionFinish");
+    }
+    // verify the required parameter 'snapshot' is set
+    if (snapshot == null) {
+      throw new ApiException(400, "Missing the required parameter 'snapshot' when calling snapshotCbtSessionFinish");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/snapshots/{snapshot}/cbt-session"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "snapshot" + "\\}", apiClient.escapeString(snapshot.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<ApiCallRcList> localVarReturnType = new GenericType<ApiCallRcList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * show a CBT session
+   * Shows the open CBT session of the snapshot
+   * @param resource resource to use (required)
+   * @param snapshot Snapshot name to use (required)
+   * @return CbtSession
+   * @throws ApiException if fails to make API call
+   */
+  public CbtSession snapshotCbtSessionShow(String resource, String snapshot) throws ApiException {
+    Object localVarPostBody = null;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling snapshotCbtSessionShow");
+    }
+    // verify the required parameter 'snapshot' is set
+    if (snapshot == null) {
+      throw new ApiException(400, "Missing the required parameter 'snapshot' when calling snapshotCbtSessionShow");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/snapshots/{snapshot}/cbt-session"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "snapshot" + "\\}", apiClient.escapeString(snapshot.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<CbtSession> localVarReturnType = new GenericType<CbtSession>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * start a CBT session
+   * Makes a CBT snapshot (created with the flag &#x60;CBT&#x60;) readable for a backup: restores it into a temporary resource with one diskful replica on a node holding the snapshot (preferably the given node) and a diskless replica on the given node (if it is not that node), and opens the snapshot for the extents requests. The DRBD devices of the temporary resource are read-only. One session per snapshot; the snapshot can&#x27;t be deleted before the session is finished. Starting can take a while on thick LVM storage, where the restore copies the whole snapshot.  A backup cycle with changed block tracking: 1. Create a CBT snapshot of the resource (&#x60;POST .../snapshots&#x60; with &#x60;\&quot;flags\&quot;: [\&quot;CBT\&quot;]&#x60;). It ends the    tracking interval of the previous CBT snapshot and starts a new one. As each CBT snapshot does this, only    one backup chain per resource can use changed block tracking. 2. Start a CBT session on the node that runs the backup. 3. For each volume, request the extents page by page (&#x60;start_offset&#x60;, &#x60;next_offset&#x60;). If &#x60;base_cbt_id&#x60; is    the &#x60;cbt_id&#x60; of the last successful backup, reading the &#x60;dirty&#x60; extents from &#x60;device_path&#x60; is an    incremental backup. Otherwise, or if the request fails with FAIL_CBT_FULL_BACKUP_REQUIRED (e.g. the    first CBT snapshot of a volume), read the whole device up to &#x60;volume_size&#x60; (full backup): the extents of    &#x60;mode&#x3D;zero&#x60; tell which ranges were never written, a full backup can store them as zeros without reading    them. 4. Finish the session (&#x60;DELETE&#x60;). After a successful backup, store the session&#x27;s &#x60;cbt_id&#x60; as the id of the    last successful backup. The snapshot itself can be deleted after the session is finished.  A session lasts until it is finished, also if the backup fails or the integration crashes: finish it in any case, else the temporary resource stays and the snapshot can&#x27;t be deleted. If the temporary resource was deleted or one of its replicas is gone, showing the session and requesting extents fail; finish the session and start a new one. 
+   * @param resource resource to use (required)
+   * @param snapshot Snapshot name to use (required)
+   * @param body  (optional)
+   * @return CbtSession
+   * @throws ApiException if fails to make API call
+   */
+  public CbtSession snapshotCbtSessionStart(String resource, String snapshot, CbtSessionStart body) throws ApiException {
+    Object localVarPostBody = body;
+    // verify the required parameter 'resource' is set
+    if (resource == null) {
+      throw new ApiException(400, "Missing the required parameter 'resource' when calling snapshotCbtSessionStart");
+    }
+    // verify the required parameter 'snapshot' is set
+    if (snapshot == null) {
+      throw new ApiException(400, "Missing the required parameter 'snapshot' when calling snapshotCbtSessionStart");
+    }
+    // create path and map variables
+    String localVarPath = "/v1/resource-definitions/{resource}/snapshots/{snapshot}/cbt-session"
+      .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()))
+      .replaceAll("\\{" + "snapshot" + "\\}", apiClient.escapeString(snapshot.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<CbtSession> localVarReturnType = new GenericType<CbtSession>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
   }
   /**
    * modify a snapshot
@@ -8067,6 +8284,62 @@ public class DevelopersApi {
     String[] localVarAuthNames = new String[] { "bearerAuth" };
 
     GenericType<ScheduleDetailsList> localVarReturnType = new GenericType<ScheduleDetailsList>() {};
+
+    if (headers != null) {
+      localVarHeaderParams.putAll(headers);
+    }
+
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+  }
+  /**
+   * list one page of the globally sorted error reports
+   * Lists error reports of all or the given nodes as a pagination envelope: the reports of all queried nodes are merged, sorted by the requested field and reduced to the requested page. &#x60;total&#x60; is the number of matching reports across all queried nodes, ignoring limit/offset. Reports of unreachable satellites are not part of &#x60;total&#x60;/&#x60;items&#x60;. 
+   * @param node Only show error reports of the given nodes (optional)
+   * @param since Unix epoch milliseconds (optional)
+   * @param to Unix timestamp to the ending interval (optional)
+   * @param withContent Include error report text in response. (optional, default to false)
+   * @param module Only show error reports of this module (optional)
+   * @param limit Maximum number of error reports per page (optional, default to 1000)
+   * @param offset Number of error reports of the sorted result to skip (optional, default to 0)
+   * @param sortBy Field to sort the error reports by (optional, default to error_time)
+   * @param sortOrder Sort order (optional, default to desc)
+   * @return ErrorReportPage
+   * @throws ApiException if fails to make API call
+   */
+  public ErrorReportPage viewErrorReports(List<String> node, Long since, Long to, Boolean withContent, String module, Integer limit, Long offset, String sortBy, String sortOrder) throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/v1/view/error-reports";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "node", node));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "since", since));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "withContent", withContent));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "module", module));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_by", sortBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_order", sortOrder));
+
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+    GenericType<ErrorReportPage> localVarReturnType = new GenericType<ErrorReportPage>() {};
 
     if (headers != null) {
       localVarHeaderParams.putAll(headers);

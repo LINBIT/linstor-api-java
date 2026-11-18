@@ -24,7 +24,7 @@ docker run -it --rm \
     --artifact-id "java-linstor" \
     --group-id com.linbit.linstor.api \
 	-DdateLibrary=java8 \
-	--additional-properties httpUserAgent=java-linstor/0.8.1 \
+	--additional-properties httpUserAgent=java-linstor/0.9.0 \
 	--library jersey2
 #	-DartifactDescription="Linstor java client library" \
 
